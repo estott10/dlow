@@ -7,7 +7,7 @@ import Form from './components/Form/Form';
 import Options from './components/Options/Options';
 import Register from './components/Register/Register';
 import Reviews from './components/Reviews/Reviews';
-import {Switch, Route} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 
 export default(
@@ -21,3 +21,5 @@ export default(
         <Route component = {Reviews} path ='/reviews'></Route>
     </Switch>
 )
+
+
