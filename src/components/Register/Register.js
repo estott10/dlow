@@ -24,7 +24,7 @@ export default class Register extends Component{
     return(
         <div>
 
-            Register
+            <h1>Register</h1>
             <div>
             Username:
             <input name='username' onChange={ (e) => this.handleChange(e)}></input>
