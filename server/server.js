@@ -22,10 +22,10 @@ app.use(session({
     }
 }))
 
-app.use((req, res, next) => {
-    console.log(req.session.user);
-    next()
-})
+// app.use((req, res, next) => {
+//     console.log(req.session.user);
+//     next()
+// })
 
 massive(process.env.CONNECTION_STRING).then( dbInstance => {
     app.set('db', dbInstance)

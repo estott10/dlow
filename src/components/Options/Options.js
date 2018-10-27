@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
 
 export default class Options extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
 
     this.state = {
 
     }
   }
-    render(){
+    render(props){
 
     return(
         <div>
 
             Options
+            <h2>{this.props.username}</h2>
 
         </div>
 

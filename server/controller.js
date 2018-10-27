@@ -18,16 +18,11 @@ module.exports= {
 
        dbInstance.login_User(email, password)
          .then(user => {
-             if(user){
-             delete user.password;
              req.session.user = user;
              res.status(200).send({isSuccessful: true})
-             } else {
-             res.status(200).send({isSuccessful: false})
-             }
          }).then((response) => {
              if(response){
-                 res.send({isSuccessful: false})
+                 res.send(response)
              }
          })
    }

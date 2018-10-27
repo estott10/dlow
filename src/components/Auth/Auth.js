@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import axios from 'axios';
+import Options from '../Options/Options'; 
 
 export default class Auth extends Component{
   constructor(){
@@ -11,8 +13,8 @@ export default class Auth extends Component{
       password: '',
       profile_pic: ''
     }
-    this.handleChange.bind = this.handleChange.bind(this);
-    this.loginUser.bind = this.loginUser.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.loginUser = this.loginUser.bind(this);
   }
 
   handleChange(e){
@@ -23,10 +25,22 @@ export default class Auth extends Component{
   
   loginUser(e){
     e.preventDefault();
-    axios.post('/api/login', this.state)
+    const existingUser = {
+      email: this.state.userid,
+      password: this.state.password
+    }
+    axios.post('/api/login', existingUser)
       .then((response)=>{
-        if(response.data.isSuccesful){
-          this.props.history.push('/')
+        console.log(response.data);
+        if(response.data.isSuccessful){
+          this.props.history.push('/options');
+          // this.setState({
+          //   userid: response.data.userid,
+          //   username: response.data.username,
+          //   email: response.data.email,
+          //   password: response.data.password,
+          //   profile_pic: response.data.profile_pic
+          // })
         }else{
           this.props.history.push('/register')
           alert(`User does not exist. Please Register.`);
@@ -34,7 +48,7 @@ export default class Auth extends Component{
       })
   }
     render(){
-
+     const {username} = this.state;
     return(
         <div>
             <div>Sign In</div>
@@ -43,6 +57,7 @@ export default class Auth extends Component{
             <div>Password:</div> 
             <input name='password' onChange={ (e) => this.handleChange(e)}></input>
             <button onClick={this.loginUser}>Login</button>
+            <Options username={username} />
         </div>
 
     )
