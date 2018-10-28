@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 export default class Options extends Component{
   constructor(props){
@@ -8,13 +9,13 @@ export default class Options extends Component{
 
     }
   }
-    render(props){
+    render(){
 
     return(
         <div>
-
             Options
-            <h2>{this.props.username}</h2>
+            <div><Link to='/newprofile'>What's Your Wheel Style Profile?</Link></div>
+            <div><Link to='/dashboard'>Explore Your Current Wheels</Link></div>
 
         </div>
 

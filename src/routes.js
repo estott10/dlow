@@ -7,7 +7,9 @@ import Form from './components/Form/Form';
 import Options from './components/Options/Options';
 import Register from './components/Register/Register';
 import Reviews from './components/Reviews/Reviews';
+import Vehicle from './components/Vehicle/Vehicle';
 import { Switch, Route } from 'react-router-dom';
+import Profile_Vehicles from './components/ProfileVehicles/Profile_Vehicles';
 
 
 export default(
@@ -19,6 +21,9 @@ export default(
         <Route component = {Options} path ='/options'></Route>
         <Route component = {Register} path ='/register'></Route>
         <Route component = {Reviews} path ='/reviews'></Route>
+        <Route component = {Vehicle} path = '/vehicle'></Route>
+        <Route component = {Profile_Vehicles} path = '/profilelist'></Route>
+
     </Switch>
 )
 

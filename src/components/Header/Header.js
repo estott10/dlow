@@ -9,6 +9,7 @@ export default function Header(){
 
             <h1>D-low</h1>
             <h2>Get Your Dream Life on Wheels!</h2>
+            
             <div>
             <p><Link to="/">Home</Link></p>
             <p><Link to="/dashboard">Vehicle Profiles</Link></p>

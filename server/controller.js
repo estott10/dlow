@@ -17,13 +17,28 @@ module.exports= {
        const {email, password} = req.body;
 
        dbInstance.login_User(email, password)
-         .then(user => {
-             req.session.user = user;
+         .then(response => {
+             console.log(response);
+             req.session.user = response;
              res.status(200).send({isSuccessful: true})
          }).then((response) => {
              if(response){
                  res.send(response)
              }
          })
-   }
+   },
+
+   getVehicles: (req, res, next) => {
+        const {make, vehicle_type} = req.params;
+        const axios = require('axios');
+    
+        axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/vehicletype/${vehicle_type}?format=json`)
+            .then((response) => {
+                console.log(response.data)
+                res.status(200).send(response.data)
+            }).catch(err => {
+                res.status(500).send({ errorMessage: "failed to retrieve list of vehicles for this profile" });
+                console.log(err)
+            })
+        }
 }

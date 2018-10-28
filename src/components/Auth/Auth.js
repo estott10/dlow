@@ -57,7 +57,6 @@ export default class Auth extends Component{
             <div>Password:</div> 
             <input name='password' onChange={ (e) => this.handleChange(e)}></input>
             <button onClick={this.loginUser}>Login</button>
-            <Options username={username} />
         </div>
 
     )
