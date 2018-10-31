@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Options from '../Options/Options'; 
+import {connect} from 'react-redux';
+import {updateUsername, updateEmail, updateAddress, updatePassword, updateProfilePic, updateUserId} from '../../ducks/reducer';
 
-export default class Auth extends Component{
-  constructor(){
-    super()
+class Auth extends Component{
+  constructor(props){
+    super(props)
 
     this.state = {
       userid: '',
       username: '',
       email: '',
+      address: '',
       password: '',
       profile_pic: ''
     }
@@ -23,32 +25,31 @@ export default class Auth extends Component{
     })
   }
   
-  loginUser(e){
-    e.preventDefault();
+  loginUser(props){
+    // e.preventDefault();
     const existingUser = {
-      email: this.state.userid,
+      email: this.state.email,
       password: this.state.password
     }
+    const {updateUsername, updateEmail, updateAddress, updatePassword, updateProfilePic, updateUserId} = this.props;
     axios.post('/api/login', existingUser)
       .then((response)=>{
-        console.log(response.data);
-        if(response.data.isSuccessful){
-          this.props.history.push('/options');
-          // this.setState({
-          //   userid: response.data.userid,
-          //   username: response.data.username,
-          //   email: response.data.email,
-          //   password: response.data.password,
-          //   profile_pic: response.data.profile_pic
-          // })
-        }else{
+        if(response.data === []){
           this.props.history.push('/register')
           alert(`User does not exist. Please Register.`);
+        }else{
+          this.props.history.push('/options');
+          updateUserId(response.data[0].userid);
+          updateUsername(response.data[0].username);
+          updateEmail(response.data[0].email);
+          updateAddress(response.data[0].address);
+          updatePassword(response.data[0].password);
+          updateProfilePic(response.data[0].profile_pic);
         }
       })
   }
     render(){
-     const {username} = this.state;
+     
     return(
         <div>
             <div>Sign In</div>
@@ -61,5 +62,7 @@ export default class Auth extends Component{
 
     )
   }
-
 }
+export default connect(null, {updateUsername, updateEmail, updateAddress, updatePassword, updateProfilePic, updateUserId})(Auth);
+
+

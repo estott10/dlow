@@ -8,8 +8,9 @@ import Options from './components/Options/Options';
 import Register from './components/Register/Register';
 import Reviews from './components/Reviews/Reviews';
 import Vehicle from './components/Vehicle/Vehicle';
+import Car from './components/Car/Car';
 import { Switch, Route } from 'react-router-dom';
-import Profile_Vehicles from './components/ProfileVehicles/Profile_Vehicles';
+import ProfileVehicles from './components/ProfileVehicles/ProfileVehicles';
 
 
 export default(
@@ -22,8 +23,8 @@ export default(
         <Route component = {Register} path ='/register'></Route>
         <Route component = {Reviews} path ='/reviews'></Route>
         <Route component = {Vehicle} path = '/vehicle'></Route>
-        <Route component = {Profile_Vehicles} path = '/profilelist'></Route>
-
+        <Route component = {ProfileVehicles} path = '/profilelist/:profileid'></Route>
+        <Route component = {Car} path = '/car'></Route>
     </Switch>
 )
 
