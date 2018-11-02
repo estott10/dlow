@@ -10,7 +10,9 @@ const initialState = {
     price: '',	
     vehicle_type: '',	
     manufacturers: '',	
-    mpg: ''
+    model: '',
+    mpg: '',
+    vehicle_profiles: []
 }
 
 const UPDATE_USERID = 'UPDATE_USERID';
@@ -25,7 +27,7 @@ const UPDATE_PROFILEPIC = 'UPDATE_PROFILEPIC';
 
 const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
 
-const UPDATE_VEHICLE_PROFILEID = '' ;	
+const UPDATE_VEHICLE_PROFILEID = 'UPDATE_VEHICLE_PROFILEID' ;	
 
 const UPDATE_TITLE = 'UPDATE_TITLE';
 
@@ -35,7 +37,11 @@ const UPDATE_VEHICLE_TYPE = 'UPDATE_VEHICLE_TYPE';
 
 const UPDATE_MANUFACTURERS = 'UPDATE_MANUFACTURERS';
 
+const UPDATE_MODEL = 'UPDATE_MODEL';
+
 const UPDATE_MPG = 'UPDATE_MPG';
+
+const UPDATE_VEHICLE_PROFILES = 'UPDATE_VEHICLE_PROFILES';
   
 
 export default function reducer(state = initialState, action){
@@ -63,8 +69,12 @@ export default function reducer(state = initialState, action){
             return Object.assign({}, state, {vehicle_type: action.payload});
         case UPDATE_MANUFACTURERS:
             return Object.assign({}, state, {manufacturers: action.payload});
+        case UPDATE_MODEL:
+            return Object.assign({}, state, {model: action.payload});
         case UPDATE_MPG:
             return Object.assign({}, state, {mpg: action.payload});
+        case UPDATE_VEHICLE_PROFILES:
+            return Object.assign({}, state, {vehicle_profiles: action.payload});
         default: return state;
     }
 }
@@ -146,9 +156,23 @@ export function updateManufacturers(manufacturers){
     }
 }
 
+export function updateModel(model){
+    return {
+        type: UPDATE_MODEL,
+        payload: model
+    }
+}
+
 export function updateMpg(mpg){
     return {
         type: UPDATE_MPG,
         payload: mpg
+    }
+}
+
+export function updateVehicleProfiles(vehicle_profiles){
+    return {
+        type: UPDATE_VEHICLE_PROFILES,
+        payload: vehicle_profiles
     }
 }

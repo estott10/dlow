@@ -1,0 +1,1 @@
+INSERT INTO users (username, email, address, profile_pic, password) VALUES ($1, $2, $3, $4, $5)

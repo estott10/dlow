@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
+import axios from 'axios';
+
 
 export default class Register extends Component{
   constructor(){
     super()
 
     this.state = {
-      userid: '',
       username: '',
       email: '',
       password: '',
       address: '',
       profile_pic: ''
     }
+    this.handleChange = this.handleChange.bind(this);
+    this.registerUser = this.registerUser.bind(this);
   }
 
   handleChange(e){
@@ -19,6 +22,21 @@ export default class Register extends Component{
       [e.target.name] : e.target.value
     })
   }
+
+  registerUser(props){
+  const newUser = {
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password,
+      address: this.state.address,
+      profile_pic: this.state.profile_pic
+  }
+ 
+  axios.post('/api/login', newUser)
+    .then((response)=>{
+        this.props.history.push('/');
+    })
+}
     render(){
 
     return(
@@ -42,5 +60,6 @@ export default class Register extends Component{
 
     )
   }
-
 }
+
+// export default connect(null, {updateUsername, updateEmail, updateAddress, updatePassword, updateProfilePic, updateUserId})(Register);

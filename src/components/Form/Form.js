@@ -20,6 +20,8 @@ export default class Form extends Component{
       [e.target.name] : e.target.value
     })
   }
+
+  
     render(){
 
     return(

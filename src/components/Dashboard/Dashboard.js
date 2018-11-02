@@ -9,7 +9,7 @@ class Dashboard extends Component{
     super(props)
 
     this.state = {
-      // userid: 2,
+      userid: this.props.userid,
       vehicle_profiles: []
     }
     this.componentDidMount = this.componentDidMount.bind(this);
@@ -20,7 +20,17 @@ class Dashboard extends Component{
       .then(result => {
           this.setState({
             vehicle_profiles: result.data
-          })
+          });
+        //   updateShownVehicleProfile(props){
+        //     const {updateVehicleProfileId, updateTitle, updatePrice, updateVehicleType, updateManufacturers, updateMpg} = this.props;
+        
+        //     updateVehicleProfileId(vehicle_profileid); 
+        //     updateTitle(title); 
+        //     updatePrice(price); 
+        //     updateVehicleType(vehicle_type); 
+        //     updateManufacturers(manufacturers); 
+        //     updateMpg(mpg);
+        //  }
       })
   }
 
@@ -32,6 +42,7 @@ class Dashboard extends Component{
             Dashboard
       
           {this.state.vehicle_profiles.map( (vehicle, i) => {
+               console.log(this.state.vehicle_profiles);
               return <ul key= {i}><Vehicle vehicle_profileid={vehicle.vehicle_profileid}	title={vehicle.title}	price={vehicle.price}	vehicle_type={vehicle.vehicle_type}	manufacturers={vehicle.manufacturers}	mpg={vehicle.mpg}	userid={vehicle.userid}/> </ul>
           })
           

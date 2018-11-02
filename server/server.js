@@ -35,6 +35,7 @@ massive(process.env.CONNECTION_STRING).then( dbInstance => {
 app.get('/api/profiles/:userid', controller.getProfiles)
 app.post('/api/login', controller.loginUser)
 app.get('/api/single_profile_list/:make/:vehicle_type', controller.getVehicles)
+app.post('/api/register', controller.registerUser)
 
 const port = process.env.PORT;
 
