@@ -39,6 +39,8 @@ class Auth extends Component{
           this.props.history.push('/register')
           alert(`User does not exist. Please Register.`);
         }else{
+          console.log(response.data[0]);
+          console.log(response.data[0].userid);
           this.props.history.push('/options');
           updateUserId(response.data[0].userid);
           updateUsername(response.data[0].username);

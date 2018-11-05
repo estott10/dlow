@@ -1,0 +1,1 @@
+INSERT INTO vehicle_profiles (title, price,	vehicle_type, manufacturers, mpg, userid) VALUES ($1, $2, $3, $4, $5, $6)

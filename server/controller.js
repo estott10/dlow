@@ -20,7 +20,7 @@ module.exports= {
        dbInstance.login_User(email, password)
          .then(response => {
              console.log(response);
-             req.session.user = response;
+             req.session.user = req.body;
              res.status(200).send(response)
          }).then((response) => {
              if(response){
@@ -35,7 +35,7 @@ module.exports= {
     dbInstance.register_User(username, email, address, profile_pic, password)
       .then(response => {
           console.log(response);
-          req.session.user = response;
+          req.session.user = req.body;
           res.status(200).send(response)
       }).then((response) => {
           if(response){
@@ -56,5 +56,17 @@ module.exports= {
                 res.status(500).send({ errorMessage: "failed to retrieve list of vehicles for this profile" });
                 console.log(err)
             })
-        }
+        },
+    addProfile: (req, res, next)=>{
+        const dbInstance = req.app.get('db');
+        const { title, price, vehicle_type, manufacturers, mpg, userid} = req.body;
+        console.log(req.body);
+        dbInstance.add_VehicleProfile(title, price,	vehicle_type, manufacturers, mpg, userid)
+            .then(response => {
+                res.status(200).send(response);
+            }).catch( err => {
+                res.status(500).send( {errorMessage: 'Failed to Add Vehicle Profile'});
+                console.log(err);
+            })
+    }
 }

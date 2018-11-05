@@ -23,7 +23,7 @@ export default class Register extends Component{
     })
   }
 
-  registerUser(props){
+  registerUser(){
   const newUser = {
       username: this.state.username,
       email: this.state.email,
@@ -32,7 +32,7 @@ export default class Register extends Component{
       profile_pic: this.state.profile_pic
   }
  
-  axios.post('/api/login', newUser)
+  axios.post('/api/register', newUser)
     .then((response)=>{
         this.props.history.push('/');
     })

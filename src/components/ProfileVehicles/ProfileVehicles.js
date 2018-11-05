@@ -38,11 +38,9 @@ export default class ProfileVehicles extends Component{
           {this.state.vehiclesList.map( (vehicle, i) => {
               console.log(this.state.vehiclesList);
               return <ul key= {i}> <Link to='/reviews'><Car make={vehicle.Make_Name} model={vehicle.Model_Name}/></Link> </ul>
-          })
+            })
           }
         </div>
-
     )
   }
-
 }
