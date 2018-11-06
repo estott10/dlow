@@ -2,45 +2,66 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Car from '../Car/Car';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux';
 
-export default class ProfileVehicles extends Component{
+class ProfileVehicles extends Component{
   constructor(props){
     super(props)
 
     this.state = {
-        vehiclesList: []
+        vehiclesList: [],
+        vehicle_profiles: [],
+        vehicle_type: '', 
+        manufacturers: '',
+        profileid: this.props.match.params
     }
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount(props){
-        const {vehicle_type, manufacturers} = this.props;
-  
-       axios.get(`/api/single_profile_list/${manufacturers}/${vehicle_type}`)
-         .then(result => {
-          this.setState({
+        const {profileid} = this.props.match.params;
+        const {vehicle_profiles} = this.props;
+
+        console.log(vehicle_profiles);
+           
+        vehicle_profiles.map( function(obj, i){
+           if(obj.vehicle_profileid === profileid){
+             console.log(obj.vehicle_profileid);
+             this.setState({
+              manufacturers: obj.manufacturers,
+              vehicle_type: obj.vehicle_type
+             })
+            } else {
+              console.log("no matches found");
+            }
+          } );
+    
+       axios.get(`/api/single_profile_list/${this.state.manufacturers}/${this.state.vehicle_type}`)
+       .then(result => {   
+       this.setState({
             vehiclesList: result.data.Results
           }) 
          })
      }
-//       const {manufacturers, vehicle_type} = this.props;
-//       axios.get('/api/single_profile_list/:make/:vehicle_type', {manufacturers, vehicle_type})
-//         .then(result => {
-//             console.log(result);
-//             this.setState({
-//                 vehiclesList: result
-//             })
-//         })
-//   }
-    render(){
 
+    render(props){
+        const {vehiclesList} = this.state;
     return(
         <div>
-          {this.state.vehiclesList.map( (vehicle, i) => {
-              console.log(this.state.vehiclesList);
-              return <ul key= {i}> <Link to='/reviews'><Car make={vehicle.Make_Name} model={vehicle.Model_Name}/></Link> </ul>
+          {vehiclesList.map( (vehicle, i) => {
+              console.log(vehiclesList);
+              return <ul key= {i}> <Link to='/reviews'>{vehicle.Make_Name} {vehicle.Model_Name}</Link> </ul>
             })
           }
         </div>
     )
   }
 }
+
+function mapStateToProps(props){
+  return {
+    vehicle_profiles: props.vehicle_profiles
+  }
+}
+
+export default connect(mapStateToProps)(ProfileVehicles);

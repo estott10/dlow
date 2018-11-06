@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import Vehicle from '../Vehicle/Vehicle';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import {updateVehicleProfiles} from '../../ducks/reducer';
+import {Link} from 'react-router-dom';
+
 
 
 class Dashboard extends Component{
@@ -15,35 +17,30 @@ class Dashboard extends Component{
     this.componentDidMount = this.componentDidMount.bind(this);
   }
   componentDidMount(props){
-     const {userid} = this.props;
+     const {userid, updateVehicleProfiles} = this.props;
     axios.get(`/api/profiles/${userid}`)
       .then(result => {
           this.setState({
             vehicle_profiles: result.data
           });
-        //   updateShownVehicleProfile(props){
-        //     const {updateVehicleProfileId, updateTitle, updatePrice, updateVehicleType, updateManufacturers, updateMpg} = this.props;
-        
-        //     updateVehicleProfileId(vehicle_profileid); 
-        //     updateTitle(title); 
-        //     updatePrice(price); 
-        //     updateVehicleType(vehicle_type); 
-        //     updateManufacturers(manufacturers); 
-        //     updateMpg(mpg);
-        //  }
-      })
-  }
+          updateVehicleProfiles(result.data);
+  });
+}
 
-    render(){
-     
+    render(props){
+
     return(
         <div>
 
             Dashboard
       
-          {this.state.vehicle_profiles.map( (vehicle, i) => {
-               console.log(this.state.vehicle_profiles);
-              return <ul key= {i}><Vehicle vehicle_profileid={vehicle.vehicle_profileid}	title={vehicle.title}	price={vehicle.price}	vehicle_type={vehicle.vehicle_type}	manufacturers={vehicle.manufacturers}	mpg={vehicle.mpg}	userid={vehicle.userid}/> </ul>
+          {this.props.vehicle_profiles.map( (vehicle, i) => {
+
+              return <ul key= {i}>
+              <Link to={`/profilelist/${vehicle.vehicle_profileid}`}>{vehicle.title}</Link>
+              {vehicle.vehicle_type}
+              {vehicle.price}
+              {vehicle.manufacturers}</ul>
           })
           
           }
@@ -54,7 +51,10 @@ class Dashboard extends Component{
 }
 
 function mapStateToProps(props){
-  return {userid: props.userid}
+  return {
+    userid: props.userid,
+    vehicle_profiles: props.vehicle_profiles
+  }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps, {updateVehicleProfiles})(Dashboard);
