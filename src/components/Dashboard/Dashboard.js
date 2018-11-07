@@ -41,8 +41,7 @@ class Dashboard extends Component{
               {vehicle.vehicle_type}
               {vehicle.price}
               {vehicle.manufacturers}</ul>
-          })
-          
+            })
           }
         </div>
 

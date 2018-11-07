@@ -68,5 +68,17 @@ module.exports= {
                 res.status(500).send( {errorMessage: 'Failed to Add Vehicle Profile'});
                 console.log(err);
             })
-    }
+    },
+    // getReviews: (req, res, next) => {
+    //     const axios = require('axios');
+    //     console.log(req.query);
+
+    //     axios.get('https://www.googleapis.com/youtube/v3/search', req.query)
+    //         .then((response) => {
+    //             res.status(200).send(response.data)
+    //         }).catch(err => {
+    //             res.status(500).send({ errorMessage: "failed to retrieve list of reviews" });
+    //             console.log(err)
+    //         })
+    // }
 }

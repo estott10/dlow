@@ -37,6 +37,7 @@ app.post('/api/login', controller.loginUser)
 app.get('/api/single_profile_list/:make/:vehicle_type', controller.getVehicles)
 app.post('/api/register', controller.registerUser)
 app.post('/api/newprofile', controller.addProfile)
+// app.get('/api/reviews/', controller.getReviews)
 
 const port = process.env.PORT;
 

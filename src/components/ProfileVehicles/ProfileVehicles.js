@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Car from '../Car/Car';
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
 
@@ -21,26 +20,28 @@ class ProfileVehicles extends Component{
   componentDidMount(props){
         const {profileid} = this.props.match.params;
         const {vehicle_profiles} = this.props;
-
         console.log(vehicle_profiles);
+        let manufacturers= '';
+        let vehicle_type = '';
            
         vehicle_profiles.map( function(obj, i){
-           if(obj.vehicle_profileid === profileid){
-             console.log(obj.vehicle_profileid);
-             this.setState({
-              manufacturers: obj.manufacturers,
-              vehicle_type: obj.vehicle_type
-             })
+          console.log(profileid);
+          console.log(obj.vehicle_profileid);
+           if(obj.vehicle_profileid === (parseInt(profileid, 10))){
+             console.log(parseInt(profileid, 10));
+              manufacturers= obj.manufacturers;
+              vehicle_type = obj.vehicle_type;
             } else {
               console.log("no matches found");
             }
           } );
     
-       axios.get(`/api/single_profile_list/${this.state.manufacturers}/${this.state.vehicle_type}`)
+       axios.get(`/api/single_profile_list/${manufacturers}/${vehicle_type}`)
        .then(result => {   
        this.setState({
             vehiclesList: result.data.Results
-          }) 
+          });
+           console.log(result.data.Results);
          })
      }
 
@@ -50,7 +51,7 @@ class ProfileVehicles extends Component{
         <div>
           {vehiclesList.map( (vehicle, i) => {
               console.log(vehiclesList);
-              return <ul key= {i}> <Link to='/reviews'>{vehicle.Make_Name} {vehicle.Model_Name}</Link> </ul>
+              return <ul key= {i}> <Link to={`/reviews/${vehicle.Make_Name}/${vehicle.Model_Name}`}>{vehicle.Make_Name} {vehicle.Model_Name}</Link> </ul>
             })
           }
         </div>

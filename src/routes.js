@@ -21,7 +21,7 @@ export default(
         <Route component = {Form} path ='/newprofile'></Route>
         <Route component = {Options} path ='/options'></Route>
         <Route component = {Register} path ='/register'></Route>
-        <Route component = {Reviews} path ='/reviews'></Route>
+        <Route component = {Reviews} path ='/reviews/:make/:model'></Route>
         <Route component = {Vehicle} path = '/vehicle'></Route>
         <Route component = {ProfileVehicles} path = '/profilelist/:profileid'></Route>
         <Route component = {Car} path = '/car'></Route>

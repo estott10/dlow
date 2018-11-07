@@ -12,7 +12,8 @@ const initialState = {
     manufacturers: '',	
     model: '',
     mpg: '',
-    vehicle_profiles: []
+    vehicle_profiles: [],
+    search_term: ''
 }
 
 const UPDATE_USERID = 'UPDATE_USERID';
@@ -42,6 +43,9 @@ const UPDATE_MODEL = 'UPDATE_MODEL';
 const UPDATE_MPG = 'UPDATE_MPG';
 
 const UPDATE_VEHICLE_PROFILES = 'UPDATE_VEHICLE_PROFILES';
+
+const UPDATE_SEARCH = 'UPDATE_SEARCH';
+
   
 
 export default function reducer(state = initialState, action){
@@ -75,6 +79,8 @@ export default function reducer(state = initialState, action){
             return Object.assign({}, state, {mpg: action.payload});
         case UPDATE_VEHICLE_PROFILES:
             return Object.assign({}, state, {vehicle_profiles: action.payload});
+        case UPDATE_SEARCH:
+            return Object.assign({}, state, {search_term: action.payload});
         default: return state;
     }
 }
@@ -174,5 +180,12 @@ export function updateVehicleProfiles(vehicle_profiles){
     return {
         type: UPDATE_VEHICLE_PROFILES,
         payload: vehicle_profiles
+    }
+}
+
+export function updateSearch(search_term){
+    return {
+        type: UPDATE_SEARCH,
+        payload: search_term
     }
 }
