@@ -68,7 +68,7 @@ module.exports= {
                 res.status(500).send( {errorMessage: 'Failed to Add Vehicle Profile'});
                 console.log(err);
             })
-    },
+    }
     // getReviews: (req, res, next) => {
     //     const axios = require('axios');
     //     console.log(req.query);

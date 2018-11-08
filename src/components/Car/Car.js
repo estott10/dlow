@@ -1,20 +1,14 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 export default function Car(props){
-  
+  const {title, channel, description} = props;
     return(
         <div>
-         <Link to='/reviews'>{props.make}{props.model}</Link> 
+        <h2>{title}</h2>
+        <p>{channel}</p>
+        <p>{description}</p>
         </div>
     )
   }
 
-// function mapStateToProps(state){
-//   return {
-//     manufacturers: this.state.manufacturers,
-//     model: this.state.model
-//   }
-// }
-
-// export default connect(mapStateToProps, {updateModel})(Car);
+  

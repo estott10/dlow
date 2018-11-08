@@ -1,35 +1,41 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import {connect} from 'react-redux';
 import YTSearch from 'youtube-api-search';
+import {updateVideos} from '../../ducks/reducer';
+import Car from '../Car/Car';
+
+require('dotenv').config();
 
 const API_KEY = 'AIzaSyA-SpQMyMvSlUs4xLi4OxJzojvCm3EGZbs';
 
+
 class Reviews extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
 
     this.state = {
-
+        videoList: []
     }
-    
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
-
-
-  componentDidMount(){
+  componentDidMount(props){
    
     const { make, model} = this.props.match.params;
-    const searchTerm = make + " " + model;
-
-    function searchYT(searchTerm){
-      YTSearch({ key: API_KEY, searchTerm}, videos =>{
-        console.log(videos);
+    const searchTerm = make + " " + model + " Review";
+    const {updateVideos} = this.props;
+    const searchYT =(term)=>{
+      YTSearch({ key: API_KEY, term}, videos =>{
+        console.log(term);
+        this.setState({
+          videoList : videos
+        })
+        return updateVideos(videos);
       })
+    
     }
-
     searchYT(searchTerm);
-
+    
     // console.log(make);
     // console.log(model);
     // axios.get('/api/reviews/', 
@@ -41,19 +47,28 @@ class Reviews extends Component{
     //        console.log(result);
     //      })
   }
-    render(){
-
+    render(props){
+      const {videoList} = this.state;
     return(
         <div>
-            {console.log(this.props.match.params)}
-            Reviews
+            {console.log(videoList)}
+            {videoList.map( (video, i) => {
 
+                return <ul key= {i}>
+               <a target="_blank" href={`https://www.youtube.com/watch?v=${video.id.videoId}`}><img alt='review' src={video.snippet.thumbnails.default.url}/></a> 
+                  <Car title={video.snippet.title}  channel={video.snippet.channelTitle} description={video.snippet.description}/>
+                  </ul>
+                })
+                  }
         </div>
-
     )
   }
-
 }
 
-export default connect(null)(Reviews)
+function mapStateToProps(props){
+  return {
+    videoList: props.video_list
+  }
+}
+export default connect(mapStateToProps, {updateVideos})(Reviews)
 
