@@ -4,8 +4,6 @@ import YTSearch from 'youtube-api-search';
 import {updateVideos} from '../../ducks/reducer';
 import Car from '../Car/Car';
 
-require('dotenv').config();
-
 const API_KEY = 'AIzaSyA-SpQMyMvSlUs4xLi4OxJzojvCm3EGZbs';
 
 

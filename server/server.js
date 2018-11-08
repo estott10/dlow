@@ -32,12 +32,12 @@ massive(process.env.CONNECTION_STRING).then( dbInstance => {
     app.set('db', dbInstance)
 }).catch(err => console.log(err));
 
-app.get('/api/profiles/:userid', controller.getProfiles)
-app.post('/api/login', controller.loginUser)
-app.get('/api/single_profile_list/:make/:vehicle_type', controller.getVehicles)
-app.post('/api/register', controller.registerUser)
-app.post('/api/newprofile', controller.addProfile)
-// app.get('/api/reviews/', controller.getReviews)
+app.get('/api/profiles/:userid', controller.getProfiles);
+app.post('/api/login', controller.loginUser);
+app.get('/api/single_profile_list/:make/:vehicle_type', controller.getVehicles);
+app.post('/api/register', controller.registerUser);
+app.post('/api/newprofile', controller.addProfile);
+app.delete('/api/vehicles/:profileId', controller.removeProfile); 
 
 const port = process.env.PORT;
 

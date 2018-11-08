@@ -27,6 +27,20 @@ class Dashboard extends Component{
   });
 }
 
+removeVehicleProfile(profileId){
+  axios.delete(`/api/vehicles/${profileId}`)
+    .then(result => {
+      const {userid, updateVehicleProfiles} = this.props;
+    axios.get(`/api/profiles/${userid}`)
+      .then(result => {
+          this.setState({
+            vehicle_profiles: result.data
+          });
+          updateVehicleProfiles(result.data);
+  });
+});
+}
+
     render(props){
 
     return(
@@ -40,7 +54,10 @@ class Dashboard extends Component{
               <Link to={`/profilelist/${vehicle.vehicle_profileid}`}>{vehicle.title}</Link>
               {vehicle.vehicle_type}
               {vehicle.price}
-              {vehicle.manufacturers}</ul>
+              {vehicle.manufacturers}
+              <button>Edit</button>
+              <button onClick={this.removeVehicleProfile(vehicle.vehicle_profileid)}>Delete</button>
+              </ul>
             })
           }
         </div>

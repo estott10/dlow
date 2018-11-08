@@ -35,14 +35,11 @@ class Vehicle extends Component{
         const {vehicle_profileid, title, price, vehicle_type, manufacturers}= this.props.vehicle_profiles;
     return(
         <div>
-
         <Link to={`/profilelist/${vehicle_profileid}`} ><button onclick={this.updateShownVehicleProfile}>{title}</button></Link>
         <div>Max Price:{price}</div>
         <div>Type: {vehicle_type}</div>
         <div>Make: {manufacturers}</div>
-        {/* <ProfileVehicles vehicle_type={this.state.vehicle_type} manufacturers={this.state.manufacturers}/> */}
         </div>
-
     )
   }
 }
