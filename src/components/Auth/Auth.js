@@ -55,7 +55,7 @@ class Auth extends Component{
      
     return(
         <div>
-            <div>Sign In</div>
+            <div>=================Sign In</div>
             <div>Email: </div>
             <input name='email' onChange={ (e) => this.handleChange(e)}></input>
             <div>Password:</div> 

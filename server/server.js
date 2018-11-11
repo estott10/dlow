@@ -38,6 +38,7 @@ app.get('/api/single_profile_list/:make/:vehicle_type', controller.getVehicles);
 app.post('/api/register', controller.registerUser);
 app.post('/api/newprofile', controller.addProfile);
 app.delete('/api/vehicles/:profileId', controller.removeProfile); 
+app.put('/api/editprofile', controller.editProfile)
 
 const port = process.env.PORT;
 

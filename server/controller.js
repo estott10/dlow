@@ -81,5 +81,19 @@ module.exports= {
               res.status(500).send({errorMessage:'Failed to Remove Vehicle Profile'});
             console.log(err);
     })
+  },
+
+  editProfile: (req, res, next) => {
+    const dbInstance = req.app.get('db');
+    const { title, price, vehicle_type, manufacturers, userid, vehicle_profileid} = req.body;
+
+    console.log(req.body);
+    dbInstance.edit_VehicleProfile(title, price, vehicle_type, manufacturers, userid, vehicle_profileid)
+        .then(response => {
+            res.status(200).send(response);
+        }).catch( err => {
+            res.status(500).send( {errorMessage: 'Failed to Update Vehicle Profile'});
+            console.log(err);
+        })
   }
 }

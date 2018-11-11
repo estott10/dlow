@@ -30,16 +30,10 @@ class Dashboard extends Component{
 removeVehicleProfile(profileId){
   axios.delete(`/api/vehicles/${profileId}`)
     .then(result => {
-      const {userid, updateVehicleProfiles} = this.props;
-    axios.get(`/api/profiles/${userid}`)
-      .then(result => {
-          this.setState({
-            vehicle_profiles: result.data
-          });
-          updateVehicleProfiles(result.data);
-  });
-});
+        this.componentDidMount();
+    });
 }
+
 
     render(props){
 
@@ -55,8 +49,8 @@ removeVehicleProfile(profileId){
               {vehicle.vehicle_type}
               {vehicle.price}
               {vehicle.manufacturers}
-              <button>Edit</button>
-              <button onClick={this.removeVehicleProfile(vehicle.vehicle_profileid)}>Delete</button>
+              <Link to ={`/edit/${vehicle.vehicle_profileid}`}><button>Edit</button></Link>
+              <button onClick= {()=>{this.removeVehicleProfile(vehicle.vehicle_profileid)}}>Delete</button>
               </ul>
             })
           }
