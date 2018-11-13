@@ -31,7 +31,7 @@ module.exports= {
    registerUser: (req, res, next) => {
     const dbInstance = req.app.get('db');
     const {username, email, address, profile_pic, password} = req.body;
-    
+    console.log(profile_pic);
     dbInstance.register_User(username, email, address, profile_pic, password)
       .then(response => {
           console.log(response);

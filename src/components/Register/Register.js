@@ -1,5 +1,14 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import { uploadFile } from 'react-s3';
+ 
+const config = {
+    bucketName: 'dlowstorage',
+    dirName: 'photos',
+    region: 'us-west-1',
+    accessKeyId: 'AKIAIJYT3FJG73MGIURQ',
+    secretAccessKey: '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',
+}
 
 
 export default class Register extends Component{
@@ -11,20 +20,28 @@ export default class Register extends Component{
       email: '',
       password: '',
       address: '',
-      profile_pic: ''
+      profile_pic: {}
     }
     this.handleChange = this.handleChange.bind(this);
     this.registerUser = this.registerUser.bind(this);
+    this.storeProfilePic = this.storeProfilePic.bind(this);
   }
 
-  handleChange(e){
+  handleChange= (e) =>{
     this.setState({
       [e.target.name] : e.target.value
     })
   }
 
+  storeProfilePic = (e) => {
+    this.setState({
+      profile_pic: e.target.files[0]
+    })
+    console.log(e.target.files[0])
+  }
+
   registerUser(){
-  const newUser = {
+   const newUser = {
       username: this.state.username,
       email: this.state.email,
       password: this.state.password,
@@ -34,11 +51,14 @@ export default class Register extends Component{
  
   axios.post('/api/register', newUser)
     .then((response)=>{
+      uploadFile(this.state.profile_pic, config)
+      .then(data => console.log(data))
+      .catch(err => console.error(err))
         this.props.history.push('/');
     })
 }
     render(){
-
+      
     return(
         <div>
 
@@ -52,8 +72,9 @@ export default class Register extends Component{
             <input name='password' onChange={ (e) => this.handleChange(e)}></input>
             Address:
             <input name='address' onChange={ (e) => this.handleChange(e)}></input>
-            Profile URL:
-            <input name='profile_pic' onChange={ (e) => this.handleChange(e)}></input>
+            Profile Image:
+            <input type="file" onChange={this.storeProfilePic}></input>
+            
             <button onClick={this.registerUser}>Register</button>
             </div>
         </div>
