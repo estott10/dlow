@@ -12,10 +12,10 @@ export default class Options extends Component{
     render(){
 
     return(
-        <div>
-            Options
-            <div><Link to='/newprofile'>What's Your Wheel Style Profile?</Link></div>
-            <div><Link to='/dashboard'>Explore Your Current Wheels</Link></div>
+        <div className= "options">
+        
+            <div className="option"><Link to='/newprofile' style={{ textDecoration: 'none', color: 'white' }}>What's Your Wheel Style Profile?</Link></div>
+            <div className="option"><Link to='/dashboard' style={{ textDecoration: 'none', color: 'white' }}>Explore Your Current Wheels</Link></div>
 
         </div>
 

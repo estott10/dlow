@@ -54,13 +54,15 @@ class Auth extends Component{
     render(){
      
     return(
-        <div>
-            <div>Sign In</div>
+        <div className="auth">
+        <div className="login">
+            <div className="signIn">Sign In</div>
             <div>Email: </div>
             <input name='email' onChange={ (e) => this.handleChange(e)}></input>
             <div>Password:</div> 
             <input name='password' onChange={ (e) => this.handleChange(e)}></input>
             <button onClick={this.loginUser}>Login</button>
+          </div>
            <div><Link to='/register'>New Around Here?</Link></div> 
         </div>
 

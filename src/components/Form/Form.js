@@ -44,18 +44,18 @@ class Form extends Component{
     render(){
 
     return(
-        <div>
+        <div className="form">
 
             <h1>Build Your Vehicle Profile</h1>
             <div>
-            Wheel Style Profile Name:
+            <div>Wheel Style Profile Name:</div>
             <input name='title' onChange={ (e) => this.handleChange(e)}></input>
-            Maximum Price:
+            <div>Maximum Price:</div>
             <input name='price' onChange={ (e) => this.handleChange(e)}></input>
-            Vehicle Type: 
+            <div>Vehicle Type:</div> 
             <input name='vehicle_type' onChange={ (e) => this.handleChange(e)}></input>
             {/* Make Drop down? <input name='password' onChange={ (e) => this.handleChange(e)}></input> */}
-            Preferred Manufacturer:
+            <div>Preferred Manufacturer:</div>
             <input name='manufacturers' onChange={ (e) => this.handleChange(e)}></input>
             <Link to='/dashboard'><button onClick={this.addCarProfile}>Show Me My Wheels!</button></Link>
             </div>

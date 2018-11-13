@@ -39,7 +39,7 @@ removeVehicleProfile(profileId){
 
     return(
         <div>
-          <img alt='dash' src = 'https://s3-us-west-1.amazonaws.com/dlowstorage/Screen+Shot+2018-10-22+at+12.55.58+PM.png' />
+
             Dashboard
       
           {this.props.vehicle_profiles.map( (vehicle, i) => {

@@ -46,18 +46,18 @@ class Edit extends Component{
     render(){
       const {profileid} = this.props.match.params
     return(
-        <div>
+        <div className="edit">
             <h1>Update Your Vehicle Profile</h1>
-            Wheel Style Profile Name:
+            <div>Wheel Style Profile Name:</div>
             <input name='title' onChange={ (e) => this.handleChange(e)}></input>
-            Maximum Price:
+            <div>Maximum Price:</div>
             <input name='price' onChange={ (e) => this.handleChange(e)}></input>
-            Vehicle Type: 
+            <div>Vehicle Type:</div> 
             <input name='vehicle_type' onChange={ (e) => this.handleChange(e)}></input>
             {/* Make Drop down? <input name='password' onChange={ (e) => this.handleChange(e)}></input> */}
-            Preferred Manufacturer:
+            <div>Preferred Manufacturer:</div>
             <input name='manufacturers' onChange={ (e) => this.handleChange(e)}></input>
-        <button onClick= {()=>{this.editVehicleProfile(profileid)}}>Update Vehicle profileId</button>
+        <button onClick= {()=>{this.editVehicleProfile(profileid)}}>Update Vehicle Profile</button>
         </div>
     )
   }
