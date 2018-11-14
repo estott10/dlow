@@ -95,5 +95,16 @@ module.exports= {
             res.status(500).send( {errorMessage: 'Failed to Update Vehicle Profile'});
             console.log(err);
         })
-  }
+  },
+  getUserCarTypes: (req, res, next) => {
+    const dbInstance = req.app.get('db');
+    
+    dbInstance.join_UserTypes()
+      .then(result => {
+          res.status(200).send(result)
+      }).catch(err => {
+          res.status(500).send({errorMessage:'Failed to Retrieve User Vehicle Types Matching Car'});
+        console.log(err);
+        })
+    }
 }

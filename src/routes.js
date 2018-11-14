@@ -8,6 +8,7 @@ import Options from './components/Options/Options';
 import Register from './components/Register/Register';
 import Reviews from './components/Reviews/Reviews';
 import Vehicle from './components/Vehicle/Vehicle';
+import Admin from './components/Admin/Admin';
 import { Switch, Route } from 'react-router-dom';
 import ProfileVehicles from './components/ProfileVehicles/ProfileVehicles';
 
@@ -23,6 +24,7 @@ export default(
         <Route component = {Reviews} path ='/reviews/:make/:model'></Route>
         <Route component = {Vehicle} path = '/vehicle'></Route>
         <Route component = {ProfileVehicles} path = '/profilelist/:profileid'></Route>
+        <Route component = {Admin} path = '/admin'></Route>
     </Switch>
 )
 
