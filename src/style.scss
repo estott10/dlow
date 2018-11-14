@@ -1,3 +1,6 @@
+$sigblue:  rgb(11, 11, 83);
+$sigbutton:  lightblue;
+
 .App {
     box-sizing: border-box;
     display: flex;
@@ -13,29 +16,31 @@ body {
     color: black;
 }
 
+@mixin display {
+    display: flex;
+    align-items: center;
+}
+
 .header {
+    @include display();
     box-sizing: border-box;
     width: 100%;
     margin-bottom: 20px;
     padding: 0px;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     background-color: rgb(201, 198, 198);
     background-image: linear-gradient(to right, red , rgb(201, 198, 198));
     background-size: cover;
     
         .logo{
+            @include display();
             box-sizing: border-box;
-            display: flex;
             flex-direction: row;
             justify-content: space-between;
-            align-items: center;
-        
         }
         h1 {
-            color: rgb(55, 55, 109);
+            color: $sigblue;
             position: relative;
             font-size: 30px;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -52,13 +57,12 @@ body {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
         .menu {
+            @include display();
             width: 100%;
             height: 20px;
-            display: flex;
             flex-direction: row;
             justify-content: center;
-            align-items: center;
-            background-color: rgb(55, 55, 109);
+            background-color: $sigblue;
             cursor: pointer;
             p {
                 padding: 0px 40px;
@@ -71,11 +75,10 @@ body {
         @media only screen and (max-width: 767px) {
            
             h1 {
-                color: rgb(55, 55, 109);
-                display: flex;
+                @include display();
+                color: $sigblue;
                 flex-direction: row;
                 justify-content: flex-start;
-                align-items: center;
                 position: center;
                 top: 0;
             }
@@ -86,10 +89,9 @@ body {
             }
 
             .menu {
-                display: flex;
+                @include display();
                 flex-direction: column;
                 justify-content: space-around;
-                align-items: center;
                 p {
                     padding: 5px;
                     padding-bottom: 20px;
@@ -98,16 +100,14 @@ body {
           }
 }
 .auth {
-    display: flex;
+    @include display();
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
 }
 .login {
-    display: flex;
+    @include display();
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
     background-color: rgb(11, 11, 83);
     color: white;
     border: solid black 1px;
@@ -139,7 +139,7 @@ body {
         width: 60px;
         height: 30px;
         color: white; 
-        background-color: rgba(29, 29, 104, 0.774);
+        background-color:$sigbutton;
         font-weight: bold;
         margin-top: 20px;
     }
@@ -151,11 +151,10 @@ body {
     @media only screen and (max-width: 767px) {
            
         h1 {
-            color: rgb(55, 55, 109);
-            display: flex;
+            @include display();
+            color: $sigblue;
             flex-direction: row;
             justify-content: flex-start;
-            align-items: center;
             position: center;
             top: 0;
         }
@@ -166,10 +165,9 @@ body {
         }
 
         .menu {
-            display: flex;
+            @include display();
             flex-direction: column;
             justify-content: space-around;
-            align-items: center;
             p {
                 padding: 5px;
                 padding-bottom: 20px;
@@ -178,22 +176,20 @@ body {
       }
 }
 .options{
-    display: flex;
+    @include display();
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
 
         .option{
+            @include display();
             width: 300px;
             height: 220px;
-            background-color: rgb(55, 55, 109);
+            background-color: $sigblue;
             border-radius: 10%;
             margin: 80px;
             border: transparent;
-            display: flex;
             flex-direction: column;
             justify-content: space-around;
-            align-items: center;
             font-weight: bold;
             font-size: 30px;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -203,17 +199,9 @@ body {
 }
 
 .register {
-  
-        display: flex;
-        flex-direction: column;
+    @extend .login;
         justify-content: space-between;
-        align-items: center;
-        border: solid black 1px;
-        box-shadow: 2px 2px rgb(201, 198, 198);
-        padding: 10px 20px;
-        border-radius: 10%;
-        background-color: rgb(11, 11, 83);
-        color: white;
+        padding: 10px 60px;
         
         div {
             padding-top: 20px;
@@ -236,7 +224,7 @@ body {
             width: 60px;
             height: 30px;
             color: white; 
-            background-color: rgba(29, 29, 104, 0.774);
+            background-color:$sigbutton;
             font-weight: bold;
             margin-top: 20px;
         }
@@ -248,11 +236,10 @@ body {
         @media only screen and (max-width: 767px) {
                
             h1 {
-                color: rgb(55, 55, 109);
-                display: flex;
+                @include display();
+                color: $sigblue;
                 flex-direction: row;
                 justify-content: flex-start;
-                align-items: center;
                 position: center;
                 top: 0;
             }
@@ -266,17 +253,12 @@ body {
 }
 
 .form {
-  
-    display: flex;
-    flex-direction: column;
+    @extend .login;
     justify-content: space-between;
-    align-items: center;
     border: solid black 1px;
-    padding: 10px 20px;
-    border-radius: 10%;
-    box-shadow: 2px 2px rgb(201, 198, 198);
+    padding: 10px 60px;
     background-color: rgb(11, 11, 83);
-    color: white;
+    margin: 20px 20px;
     
     div {
         padding-top: 20px;
@@ -298,7 +280,7 @@ body {
         width: 100px;
         height: 40px;
         color: white; 
-        background-color: rgba(29, 29, 104, 0.774);
+        background-color:$sigbutton;
         font-weight: bold;
         margin-top: 20px;
         margin-left: 20px;
@@ -311,11 +293,10 @@ body {
     @media only screen and (max-width: 767px) {
            
         h1 {
-            color: rgb(55, 55, 109);
-            display: flex;
+            @include display();
+            color: $sigblue;
             flex-direction: row;
             justify-content: flex-start;
-            align-items: center;
             position: center;
             top: 0;
         }
@@ -329,16 +310,9 @@ body {
 }
 
 .edit{
-        display: flex;
-        flex-direction: column;
+    @extend .login;
         justify-content: space-between;
-        align-items: center;
-        border: solid black 1px;
-        box-shadow: 2px 2px rgb(201, 198, 198);
-        padding: 10px 20px;
-        border-radius: 10%;
-        background-color: rgb(11, 11, 83);
-        color: white;
+        padding: 10px 60px;
         
         div {
             padding-top: 20px;
@@ -360,7 +334,7 @@ body {
             width: 160px;
             height: 40px;
             color: white; 
-            background-color: rgba(29, 29, 104, 0.774);
+            background-color:$sigbutton;
             font-weight: bold;
             margin-top: 20px;
             margin-left: 20px;
@@ -373,11 +347,10 @@ body {
         @media only screen and (max-width: 767px) {
                
             h1 {
-                color: rgb(55, 55, 109);
-                display: flex;
+                @include display();
+                color: $sigblue;
                 flex-direction: row;
                 justify-content: flex-start;
-                align-items: center;
                 position: center;
                 top: 0;
             }
@@ -391,10 +364,9 @@ body {
     }
 
 .dashboard{
-        display: flex;
+    @include display();
         flex-direction: column;
         justify-content: space-between;
-        align-items: center;
         padding: 10px 20px;
         color: black;
         
@@ -409,7 +381,7 @@ body {
             width: 160px;
             height: 40px;
             color: white; 
-            background-color: rgba(29, 29, 104, 0.774);
+            background-color:$sigbutton;
             font-weight: bold;
             margin-top: 20px;
             margin-left: 20px;
@@ -418,10 +390,9 @@ body {
         @media only screen and (max-width: 767px) {
                
             h1 {
-                display: flex;
+                @include display();
                 flex-direction: row;
                 justify-content: flex-start;
-                align-items: center;
                 position: center;
                 top: 0;
             }
@@ -434,18 +405,17 @@ body {
 }
 
 .profileVehicles{
-    display: flex;
+    @include display();
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     padding: 10px 20px;
     color: black;
     
     .carGrid {
         display: grid;
         grid-column-gap: 50px;
-        // justify-content: center;
-        // align-items: center;
+        justify-content: center;
+        align-items: center;
     }
     div {
         padding-top: 20px;
@@ -458,7 +428,7 @@ body {
         width: 160px;
         height: 40px;
         color: white; 
-        background-color: rgba(29, 29, 104, 0.774);
+        background-color:$sigbutton;
         font-weight: bold;
         margin-top: 20px;
         margin-left: 20px;
@@ -467,10 +437,9 @@ body {
     @media only screen and (max-width: 767px) {
            
         h1 {
-            display: flex;
+            @include display();
             flex-direction: row;
             justify-content: flex-start;
-            align-items: center;
             position: center;
             top: 0;
         }
