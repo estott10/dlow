@@ -4,6 +4,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    background-image: url("./dlowBackground.png");
+    background-size: cover;
 }
 
 body {
@@ -13,36 +15,56 @@ body {
 
 .header {
     box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-        h1 {
-            color: rgb(55, 55, 109);
+    background-color: rgb(201, 198, 198);
+    background-image: linear-gradient(to right, red , rgb(201, 198, 198));
+    background-size: cover;
+    
+        .logo{
+            box-sizing: border-box;
             display: flex;
             flex-direction: row;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
-            position:absolute;
-            left:0;
-            top:0;
-            font-size: 40px;
+        
+        }
+        h1 {
+            color: rgb(55, 55, 109);
+            position: relative;
+            font-size: 30px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-style: italic;
+            text-shadow: 2px 2px;
         }
         h2 {
             color: black;
-            padding-top: 80px;
+            padding-top: 40px;
+            margin-right: 40px;
             font-size: 40px;
+            margin-bottom: 0px;
+            margin-top: 0px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
         .menu {
+            width: 100%;
+            height: 20px;
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content: center;
             align-items: center;
-            text-decoration: none;
+            background-color: rgb(55, 55, 109);
             cursor: pointer;
             p {
-                padding: 10px;
-                padding-bottom: 40px;
+                padding: 0px 40px;
+                margin: 0px;
+                border-right: solid lightblue 1px; 
+                border-left: solid lightblue 1px;
             }
         }
 
@@ -89,10 +111,16 @@ body {
     background-color: rgb(11, 11, 83);
     color: white;
     border: solid black 1px;
+    box-shadow: 2px 2px rgb(201, 198, 198);
     padding: 10px 20px;
     border-radius: 10%;
     width: 300px;
+    margin-top: 40px;
+    margin-bottom: 10px;
 
+    .signIn{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
     
     div {
         padding-top: 20px;
@@ -105,6 +133,7 @@ body {
         margin: 8px 0;
         box-sizing: border-box;
         font-size: 20px;
+        box-shadow: 4px rgb(201, 198, 198);
     }
     button {
         width: 60px;
@@ -158,6 +187,7 @@ body {
             width: 300px;
             height: 220px;
             background-color: rgb(55, 55, 109);
+            border-radius: 10%;
             margin: 80px;
             border: transparent;
             display: flex;
@@ -166,7 +196,9 @@ body {
             align-items: center;
             font-weight: bold;
             font-size: 30px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             padding: 10px;
+            box-shadow: 2px 2px rgb(201, 198, 198);
         }
 }
 
@@ -177,6 +209,7 @@ body {
         justify-content: space-between;
         align-items: center;
         border: solid black 1px;
+        box-shadow: 2px 2px rgb(201, 198, 198);
         padding: 10px 20px;
         border-radius: 10%;
         background-color: rgb(11, 11, 83);
@@ -187,6 +220,7 @@ body {
         }
         h1{
             font-size: 30px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
         input{
             width: 340px;
@@ -196,6 +230,7 @@ body {
             margin: 8px 0;
             box-sizing: border-box;
             font-size: 20px;
+            box-shadow: 4px rgb(201, 198, 198);
         }
         button {
             width: 60px;
@@ -239,6 +274,7 @@ body {
     border: solid black 1px;
     padding: 10px 20px;
     border-radius: 10%;
+    box-shadow: 2px 2px rgb(201, 198, 198);
     background-color: rgb(11, 11, 83);
     color: white;
     
@@ -256,6 +292,7 @@ body {
         margin: 8px 0;
         box-sizing: border-box;
         font-size: 20px;
+        box-shadow: 4px rgb(201, 198, 198);
     }
     button {
         width: 100px;
@@ -297,6 +334,7 @@ body {
         justify-content: space-between;
         align-items: center;
         border: solid black 1px;
+        box-shadow: 2px 2px rgb(201, 198, 198);
         padding: 10px 20px;
         border-radius: 10%;
         background-color: rgb(11, 11, 83);
@@ -316,6 +354,7 @@ body {
             margin: 8px 0;
             box-sizing: border-box;
             font-size: 20px;
+            box-shadow: 4px rgb(201, 198, 198);
         }
         button {
             width: 160px;
