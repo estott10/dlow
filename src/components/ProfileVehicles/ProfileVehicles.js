@@ -50,14 +50,15 @@ class ProfileVehicles extends Component{
         const {vehiclesList} = this.state;
 
     return(
-        <div>
+        <div className="profileVehicles">
           Vehicles Matching Your Profile 
-        
+          <div className="carGrid">
           {vehiclesList.map( (vehicle, i) => {
               console.log(vehiclesList);
               return <ul key= {i}> <Link to={`/reviews/${vehicle.Make_Name}/${vehicle.Model_Name}`}>{vehicle.Make_Name} {vehicle.Model_Name}</Link> </ul>
             })
           }
+          </div>
         </div>
     )
   }

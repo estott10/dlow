@@ -38,18 +38,18 @@ removeVehicleProfile(profileId){
     render(props){
 
     return(
-        <div>
+        <div className="dashboard">
 
-            Dashboard
+            <h1>Stored Vehicle Profiles</h1>
       
           {this.props.vehicle_profiles.map( (vehicle, i) => {
 
               return <ul key= {i}>
-              <Link to={`/profilelist/${vehicle.vehicle_profileid}`}>{vehicle.title}</Link>
-              {vehicle.vehicle_type}
-              {vehicle.price}
-              {vehicle.manufacturers}
-              <Link to ={`/edit/${vehicle.vehicle_profileid}`}><button>Edit</button></Link>
+              <Link to={`/profilelist/${vehicle.vehicle_profileid}`} style={{ textDecoration: 'none', color: 'blue'}}>{vehicle.title} List</Link>
+              <div>Type: {vehicle.vehicle_type}</div>
+              <div>Price: ${vehicle.price}</div>
+              <div>Make: {vehicle.manufacturers}</div>
+              <Link to ={`/edit/${vehicle.vehicle_profileid}`} style={{ textDecoration: 'none', color: 'white'}}><button>Edit</button></Link>
               <button onClick= {()=>{this.removeVehicleProfile(vehicle.vehicle_profileid)}}>Delete</button>
               </ul>
             })
