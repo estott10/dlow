@@ -17,7 +17,7 @@ export default(
     <Switch>
         <Route component = {Auth} exact path ='/'></Route>
         <Route component = {Dashboard} path ='/dashboard'></Route>
-        <Route component = {Edit} path ='/edit/:profileId'></Route>
+        <Route component = {Edit} path ='/edit/:vehicle_profileid'></Route>
         <Route component = {Form} path ='/newprofile'></Route>
         <Route component = {Options} path ='/options'></Route>
         <Route component = {Register} path ='/register'></Route>

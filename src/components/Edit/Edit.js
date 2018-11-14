@@ -11,9 +11,8 @@ class Edit extends Component{
       title: '',	
       price: '',	
       vehicle_type:	'',
-      manufacturers: '',	
-      userid: this.props.userid,
-      vehicle_profileid: this.props.match.params.profileid
+      manufacturers: '',
+      userid: this.props.userid
   }
   this.editVehicleProfile = this.editVehicleProfile.bind(this);
   this.handleChange = this.handleChange.bind(this);
@@ -25,15 +24,16 @@ class Edit extends Component{
     })
   }
 
-  editVehicleProfile(id){
-    const {profileid} = this.props.match.params
+  editVehicleProfile(props){
+    const {vehicle_profileid} = this.props.match.params;
+    const {userid} = this.props;
     const updatedProfile = {
       title: this.state.title,	
-      price: this.state.price,	
+      price: (parseInt(this.state.price, 10)),	
       vehicle_type:	this.state.vehicle_type,
       manufacturers: this.state.manufacturers,		
-      userid: this.state.userid,
-      vehicle_profileid: profileid
+      userid: userid,
+      vehicle_profileid: (parseInt(vehicle_profileid, 10))
     }
 
     console.log(updatedProfile);
@@ -43,8 +43,8 @@ class Edit extends Component{
         this.props.history.push('/dashboard');
       });
   }
-    render(){
-      const {profileid} = this.props.match.params
+    render(props){
+      const {vehicle_profileid} = this.props.match.params;
     return(
         <div className="edit">
             <h1>Update Your Vehicle Profile</h1>
@@ -57,10 +57,16 @@ class Edit extends Component{
             {/* Make Drop down? <input name='password' onChange={ (e) => this.handleChange(e)}></input> */}
             <div>Preferred Manufacturer:</div>
             <input name='manufacturers' onChange={ (e) => this.handleChange(e)}></input>
-        <button onClick= {()=>{this.editVehicleProfile(profileid)}}>Update Vehicle Profile</button>
+        <button onClick= {()=>{this.editVehicleProfile(vehicle_profileid)}}>Update Vehicle Profile</button>
         </div>
     )
   }
 }
 
-export default connect(null)(Edit);
+function mapStateToProps(props){
+  return {
+    userid: props.userid,
+  }
+}
+
+export default connect(mapStateToProps)(Edit);
