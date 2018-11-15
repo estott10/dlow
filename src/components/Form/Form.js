@@ -53,7 +53,7 @@ class Form extends Component{
             <div>Maximum Price:</div>
             <input name='price' onChange={ (e) => this.handleChange(e)}></input>
             <div>Vehicle Type:</div> 
-            <input name='vehicle_type' onChange={ (e) => this.handleChange(e)}></input>
+            <input name='vehicle_type' onChange={ (e) => this.handleChange(e)} placeholder="vehicle, car, truck"></input>
             {/* Make Drop down? <input name='password' onChange={ (e) => this.handleChange(e)}></input> */}
             <div>Preferred Manufacturer:</div>
             <input name='manufacturers' onChange={ (e) => this.handleChange(e)}></input>
