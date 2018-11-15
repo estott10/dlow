@@ -1,20 +1,22 @@
-$sigblue:  rgb(11, 11, 83);
+$sigblue:   rgb(59, 59, 94);
 $sigbutton:  lightblue;
 
-.App {
-    box-sizing: border-box;
+html{
+    background-image: url("./dlowBackground.png");
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-image: url("./dlowBackground.png");
-    background-size: cover;
-}
-
-body {
-    background: whitesmoke;
-    color: black;
-}
+    box-sizing: border-box;
+    }
+// .App {
+//     box-sizing: border-box;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     align-items: center;
+// }
 
 @mixin display {
     display: flex;
@@ -23,8 +25,6 @@ body {
 
 .header {
     @include display();
-    box-sizing: border-box;
-    width: 100%;
     margin-bottom: 20px;
     padding: 0px;
     flex-direction: column;
@@ -32,7 +32,23 @@ body {
     background-color: rgb(201, 198, 198);
     background-image: linear-gradient(to right, red , rgb(201, 198, 198));
     background-size: cover;
-    
+        .welcome{
+            min-height: 60px;
+            min-width: 100%;
+            background-image: url("https://cdn.pixabay.com/photo/2013/11/28/10/36/road-220058__340.jpg");
+            background-size: cover;
+            background-position: center;
+            font-weight: bold;
+            text-align: center;
+            font-size: 40px;
+            padding-top: 20px;
+            color: white;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+        }
+        image{
+            position: absolute;
+        }
         .logo{
             @include display();
             box-sizing: border-box;
@@ -90,6 +106,7 @@ body {
 
             .menu {
                 @include display();
+                height: 25%;
                 flex-direction: column;
                 justify-content: space-around;
                 p {
@@ -97,7 +114,7 @@ body {
                     padding-bottom: 20px;
                 }
             }
-          }
+        }
 }
 .auth {
     @include display();
@@ -108,7 +125,7 @@ body {
     @include display();
     flex-direction: column;
     justify-content: space-around;
-    background-color: rgb(11, 11, 83);
+    background-color: rgb(59, 59, 94);
     color: white;
     border: solid black 1px;
     box-shadow: 2px 2px rgb(201, 198, 198);
@@ -376,9 +393,22 @@ body {
         }
         h1{
             font-size: 30px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
-        button {
-            width: 160px;
+        .profileGrid{
+            @include display();
+            flex-direction: row;
+        }
+        .vehicleProfile{
+            border: $sigblue solid 1px;
+            border-radius: 10%;
+            background-color: rgb(179, 193, 197);
+            padding-left: 20px;
+            height: 200px;
+            width: 200px;
+        }
+        button{
+            width: 100px;
             height: 40px;
             color: white; 
             background-color:$sigbutton;
@@ -411,11 +441,13 @@ body {
     padding: 10px 20px;
     color: black;
     
-    .carGrid {
-        display: grid;
+    .car {
+        display: inline-table;
         grid-column-gap: 50px;
         justify-content: center;
         align-items: center;
+        border: $sigblue solid 2px;
+        padding-right: 20px;
     }
     div {
         padding-top: 20px;
@@ -423,6 +455,7 @@ body {
     }
     h1{
         font-size: 30px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
     button {
         width: 160px;
@@ -449,4 +482,52 @@ body {
             padding-top: 70px;
         }
   }
+}
+
+.reviewGrid{
+    @include display();
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 20px;
+    color: black;
+    width: fit-content;
+    .review {
+        @include display();
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: $sigblue solid 2px;
+        padding-right: 20px;
+
+        .thumbnail{
+            min-width: 200px;
+            min-height: 200px;
+        }
+    }
+    div {
+        padding-top: 20px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    h1{
+        font-size: 30px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    @media only screen and (max-width: 767px) {
+           
+        h1 {
+            @include display();
+            flex-direction: row;
+            justify-content: flex-start;
+            position: center;
+            top: 0;
+        }
+        h2 {
+            color:black;
+            text-align: center;
+            padding-top: 70px;
+        }
+  }
+    
 }

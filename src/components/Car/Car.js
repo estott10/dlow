@@ -5,8 +5,8 @@ export default function Car(props){
     return(
         <div>
         <h2>{title}</h2>
-        <p>{channel}</p>
-        <p>{description}</p>
+        <p>Channel: {channel}</p>
+        <p style= {{fontStyle:'italic'}}>Brief Description: {description}</p>
         </div>
     )
   }

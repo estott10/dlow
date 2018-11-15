@@ -44,13 +44,17 @@ removeVehicleProfile(profileId){
       
           {this.props.vehicle_profiles.map( (vehicle, i) => {
 
-              return <ul key= {i}>
+              return <ul className="profileGrid" key= {i}>
+              <div className="vehicleProfile">
               <Link to={`/profilelist/${vehicle.vehicle_profileid}`} style={{ textDecoration: 'none', color: 'blue'}}>{vehicle.title} List</Link>
               <div>Type: {vehicle.vehicle_type}</div>
               <div>Price: ${vehicle.price}</div>
               <div>Make: {vehicle.manufacturers}</div>
+              </div>
+              <div>
               <Link to ={`/edit/${vehicle.vehicle_profileid}`} style={{ textDecoration: 'none', color: 'white'}}><button>Edit</button></Link>
               <button onClick= {()=>{this.removeVehicleProfile(vehicle.vehicle_profileid)}}>Delete</button>
+              </div>
               </ul>
             })
           }

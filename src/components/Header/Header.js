@@ -8,7 +8,7 @@ export default function Header(){
             <div className="logo">
             <h1>D-low</h1>
             <h2>Get Your Dream Life on Wheels</h2>
-            <img alt="womandriving" src="/src/adventure-automobile-automotive-787476copy.jpg" />
+            <img alt="mandriving" src="https://cdn.pixabay.com/photo/2016/09/09/19/56/car-1657935_960_720.jpg" style={{height: 100, width: 'auto'}}/>
             </div>
             <div className="menu">
             <p><Link to="/" style={{ textDecoration: 'none', color: 'white' }}>Home</Link></p>
@@ -16,6 +16,7 @@ export default function Header(){
             <p><Link to="/newprofile" style={{ textDecoration: 'none', color: 'white' }}>Start New Profile</Link></p>
             <p><Link to="/" style={{ textDecoration: 'none', color: 'white' }}>Logout</Link></p>
             </div>
+            <div className= "welcome">Welcome</div>
         </div>
 
     )

@@ -49,12 +49,15 @@ class Reviews extends Component{
       const {videoList} = this.state;
     return(
         <div>
+            <h1>Featured Reviews</h1>
             {console.log(videoList)}
             {videoList.map( (video, i) => {
 
-                return <ul key= {i}>
-               <a target="_blank" href={`https://www.youtube.com/watch?v=${video.id.videoId}`}><img alt='review' src={video.snippet.thumbnails.default.url}/></a> 
+                return <ul className="reviewGrid" key= {i}>
+                <div className="review">
+                  <a className="thumnail" target="_blank" href={`https://www.youtube.com/watch?v=${video.id.videoId}`}><img alt='review' src={video.snippet.thumbnails.default.url}/>Watch Now</a> 
                   <Car title={video.snippet.title}  channel={video.snippet.channelTitle} description={video.snippet.description}/>
+                  </div>
                   </ul>
                 })
                   }
