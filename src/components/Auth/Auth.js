@@ -3,6 +3,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {updateUsername, updateEmail, updateAddress, updatePassword, updateProfilePic, updateUserId} from '../../ducks/reducer';
 import {Link} from 'react-router-dom';
+import { cpus } from 'os';
 
 class Auth extends Component{
   constructor(props){
@@ -63,7 +64,7 @@ class Auth extends Component{
             <input name='password' onChange={ (e) => this.handleChange(e)}></input>
             <button onClick={this.loginUser}>Login</button>
           </div>
-           <div><Link to='/register'>New Around Here?</Link></div> 
+           <div style={{padding: '20px', color: 'white'}}><Link to='/register'>New Around Here?</Link></div> 
         </div>
 
     )

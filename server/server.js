@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const express = require('express'),
-      path = require('path'),
+    //   path = require('path'),
       bodyParser= require('body-parser'),
       cors= require('cors'),
       massive= require('massive'),
@@ -11,13 +11,13 @@ const express = require('express'),
 const app = express();
 const controller = require('./controller');
 
-app.use(express.static(path.join(__dirname, '/build')));
+// app.use(express.static(path.join(__dirname, '/build')));
 
-app.get('/*', (req, res) => {
-    res.sendFile('index.html', {   
-        root: path.join(_dirname + '/build') 
-    })
-} )
+// app.get('/*', (req, res) => {
+//     res.sendFile('index.html', {   
+//         root: path.join(_dirname + '/build') 
+//     })
+// } )
 
 app.use(bodyParser.json());
 app.use(cors());

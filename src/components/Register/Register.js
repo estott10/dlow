@@ -60,6 +60,7 @@ export default class Register extends Component{
     render(){
       
     return(
+      <div className="registerdiv">
         <div className="register">
 
             <h1>Register</h1>
@@ -77,6 +78,8 @@ export default class Register extends Component{
             
             <button onClick={this.registerUser}>Register</button>
             </div>
+        </div>
+      {/* <div className="registerimg"></div> */}
         </div>
 
     )

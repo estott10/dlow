@@ -44,6 +44,7 @@ class Form extends Component{
     render(){
 
     return(
+      <div className="actionform">
         <div className="form">
 
             <h1>Build Your Vehicle Profile</h1>
@@ -59,7 +60,7 @@ class Form extends Component{
             <input name='manufacturers' onChange={ (e) => this.handleChange(e)}></input>
             <Link to='/dashboard'><button onClick={this.addCarProfile}>Show Me My Wheels!</button></Link>
             </div>
-
+            </div>
         </div>
 
     )

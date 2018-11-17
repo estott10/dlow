@@ -7,8 +7,9 @@ html{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
     }
 // .App {
 //     box-sizing: border-box;
@@ -35,9 +36,9 @@ html{
         .welcome{
             min-height: 60px;
             min-width: 100%;
-            background-image: url("https://cdn.pixabay.com/photo/2013/11/28/10/36/road-220058__340.jpg");
+            background-image: url("./images/asphalt.jpg");
             background-size: cover;
-            background-position: center;
+            background-position: bottom;
             font-weight: bold;
             text-align: center;
             font-size: 40px;
@@ -89,19 +90,14 @@ html{
         }
 
         @media only screen and (max-width: 767px) {
-           
             h1 {
                 @include display();
                 color: $sigblue;
-                flex-direction: row;
-                justify-content: flex-start;
-                position: center;
-                top: 0;
             }
             h2 {
                 color:black;
                 text-align: center;
-                padding-top: 70px;
+                padding-top: 10px;
             }
 
             .menu {
@@ -114,18 +110,28 @@ html{
                     padding-bottom: 20px;
                 }
             }
+            .logo{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+            }
         }
 }
 .auth {
     @include display();
     flex-direction: column;
     justify-content: space-around;
+    background-image: url("./images/audi.jpg");
+    background-size: cover;
+    background-position: 70%;
+    height: 800px;
 }
 .login {
     @include display();
     flex-direction: column;
     justify-content: space-around;
-    background-color: rgb(59, 59, 94);
+    background-color: rgba(59, 59, 94, 0.507);
     color: white;
     border: solid black 1px;
     box-shadow: 2px 2px rgb(201, 198, 198);
@@ -213,11 +219,28 @@ html{
             padding: 10px;
             box-shadow: 2px 2px rgb(201, 198, 198);
         }
+        @media only screen and (max-width: 767px) {
+            @include display();
+            flex-direction: column;
+            justify-content: space-between;
+
+        }
+}
+
+.registerdiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    // .registerimg{
+    //     background-image: url("/src/images/action.jpg");
+    //     background-size: cover;
+    //     width: 100%;
+    //     height: 100%;
+    // }
 }
 
 .register {
     @extend .login;
-        justify-content: space-between;
         padding: 10px 60px;
         
         div {
@@ -269,61 +292,65 @@ html{
     }
 }
 
-.form {
-    @extend .login;
-    justify-content: space-between;
-    border: solid black 1px;
-    padding: 10px 60px;
-    background-color: rgb(11, 11, 83);
-    margin: 20px 20px;
-    
-    div {
-        padding-top: 20px;
-    }
-    h1{
-        font-size: 30px;
-    }
-    input{
-        width: 340px;
-        height: 30px;
-        margin-top: 10px;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        font-size: 20px;
-        box-shadow: 4px rgb(201, 198, 198);
-    }
-    button {
-        width: 100px;
-        height: 40px;
-        color: white; 
-        background-color:$sigbutton;
-        font-weight: bold;
-        margin-top: 20px;
-        margin-left: 20px;
-    }
-    .signIn{
-        font-size: 30px;
-        padding-bottom: 20px;
-    }
+.actionform {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-image: url("/src/images/action.jpg");
+    background-size: cover;
+    .form {
+        @extend .login;
+        justify-content: space-between;
+        border: solid black 1px;
+        padding: 10px 60px;
+        background-color: rgba(59, 59, 94, 0.856);
+        margin: 20px 20px;
+        
+        div {
+            padding-top: 20px;
+            
+        }
+        h1{
+            font-size: 30px;
+        }
+        input{
+            width: 340px;
+            height: 30px;
+            margin-top: 10px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 20px;
+            box-shadow: 4px rgb(201, 198, 198);
+        }
+        button {
+            width: 100px;
+            height: 40px;
+            color: white; 
+            background-color:$sigbutton;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
 
-    @media only screen and (max-width: 767px) {
-           
-        h1 {
-            @include display();
-            color: $sigblue;
-            flex-direction: row;
-            justify-content: flex-start;
-            position: center;
-            top: 0;
+        @media only screen and (max-width: 767px) {
+            
+            h1 {
+                @include display();
+                color: $sigblue;
+                flex-direction: row;
+                justify-content: flex-start;
+                position: center;
+                top: 0;
+            }
+            h2 {
+                color:black;
+                text-align: center;
+                padding-top: 70px;
+            }
+    
         }
-        h2 {
-            color:black;
-            text-align: center;
-            padding-top: 70px;
-        }
-   
-  }
+    }
 }
 
 .edit{
@@ -351,7 +378,7 @@ html{
             width: 160px;
             height: 40px;
             color: white; 
-            background-color:$sigbutton;
+            background-color: $sigbutton;
             font-weight: bold;
             margin-top: 20px;
             margin-left: 20px;
@@ -401,11 +428,11 @@ html{
         }
         .vehicleProfile{
             border: $sigblue solid 1px;
-            border-radius: 10%;
-            background-color: rgb(179, 193, 197);
+            border-radius: 5%;
+            background-color: rgba(179, 193, 197, 0.712);
             padding-left: 20px;
             height: 200px;
-            width: 200px;
+            width: 400px;
         }
         button{
             width: 100px;
@@ -418,7 +445,7 @@ html{
         }
 
         @media only screen and (max-width: 767px) {
-               
+            
             h1 {
                 @include display();
                 flex-direction: row;
@@ -431,7 +458,17 @@ html{
                 text-align: center;
                 padding-top: 70px;
             }
-      }
+            .vehicleProfile{
+                border: $sigblue solid 1px;
+                border-radius: 5%;
+                background-color: rgba(179, 193, 197, 0.712);
+                padding-left: 20px;
+                min-height: 200px;
+                min-width: 200px;
+                width: fit-content;
+                text-align: center;
+        }
+    }
 }
 
 .profileVehicles{
@@ -445,7 +482,7 @@ html{
         display: inline-table;
         grid-column-gap: 50px;
         justify-content: center;
-        align-items: center;
+        // align-items: center;
         border: $sigblue solid 2px;
         padding-right: 20px;
     }
@@ -491,6 +528,7 @@ html{
     padding: 10px 20px;
     color: black;
     width: fit-content;
+    background-color: white;
     .review {
         @include display();
         flex-direction: column;
@@ -499,6 +537,7 @@ html{
         text-align: center;
         border: $sigblue solid 2px;
         padding-right: 20px;
+        min-width: 100%;
 
         .thumbnail{
             min-width: 200px;
