@@ -14,7 +14,9 @@ const controller = require('./controller');
 app.use(express.static(path.join(__dirname, '/build')));
 
 app.get('/*', (req, res) => {
-    res.redirect('/');
+    res.sendFile('index.html', {   
+        root: path.join(_dirname + '/build') 
+    })
 } )
 
 app.use(bodyParser.json());
