@@ -163,6 +163,7 @@ html{
         height: 30px;
         color: white; 
         background-color:$sigbutton;
+        border: onset transparent 2px;
         font-weight: bold;
         margin-top: 20px;
     }
@@ -265,6 +266,7 @@ html{
             height: 30px;
             color: white; 
             background-color:$sigbutton;
+            border: onset transparent 2px;
             font-weight: bold;
             margin-top: 20px;
         }
@@ -328,6 +330,7 @@ html{
             height: 40px;
             color: white; 
             background-color:$sigbutton;
+            border: onset transparent 2px;
             font-weight: bold;
             margin-top: 20px;
             margin-left: 20px;
@@ -379,6 +382,7 @@ html{
             height: 40px;
             color: white; 
             background-color: $sigbutton;
+            border: onset transparent 2px;
             font-weight: bold;
             margin-top: 20px;
             margin-left: 20px;
@@ -416,11 +420,12 @@ html{
         
         div {
             padding-top: 20px;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-family: helvetica;
+            font-weight: bold;
         }
         h1{
             font-size: 30px;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-family: helvetica;
         }
         .profileGrid{
             @include display();
@@ -439,6 +444,7 @@ html{
             height: 40px;
             color: white; 
             background-color:$sigbutton;
+            border: onset transparent 2px;
             font-weight: bold;
             margin-top: 20px;
             margin-left: 20px;
@@ -474,17 +480,29 @@ html{
 .profileVehicles{
     @include display();
     flex-direction: column;
-    justify-content: space-between;
     padding: 10px 20px;
     color: black;
-    
+    background-color: white;
+    background-size: cover;
+    min-height: 800px;
     .car {
         display: inline-table;
         grid-column-gap: 50px;
         justify-content: center;
-        // align-items: center;
-        border: $sigblue solid 2px;
-        padding-right: 20px;
+        text-align: center;
+        border: $sigblue outset 1px;
+        border-radius: 5px;
+        box-shadow: 2px 2px rgb(201, 198, 198);
+        padding: 20px 20px 10px 10px;
+        height: 80px;
+        width: 120px;
+        margin: 10px;
+        background-color: rgba(59, 59, 94, 0.507);
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
     }
     div {
         padding-top: 20px;
@@ -492,13 +510,14 @@ html{
     }
     h1{
         font-size: 30px;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-family: helvetica;
     }
     button {
         width: 160px;
         height: 40px;
         color: white; 
         background-color:$sigbutton;
+        border: onset transparent 2px;
         font-weight: bold;
         margin-top: 20px;
         margin-left: 20px;
@@ -535,13 +554,14 @@ html{
         justify-content: center;
         align-items: center;
         text-align: center;
-        border: $sigblue solid 2px;
+        border: lightgray outset 4px;
+        box-shadow: 1px 1px rgb(201, 198, 198);
         padding-right: 20px;
         min-width: 100%;
 
         .thumbnail{
-            min-width: 200px;
-            min-height: 200px;
+            width: 800px;
+            min-height: 600px;
         }
     }
     div {
@@ -566,6 +586,12 @@ html{
             color:black;
             text-align: center;
             padding-top: 70px;
+        }
+        .review{
+            .thumbnail{
+                min-width: 200px;
+                min-height: 200px;
+            }
         }
   }
     
