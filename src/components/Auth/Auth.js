@@ -55,18 +55,26 @@ class Auth extends Component{
     render(){
      
     return(
+        <div>
         <div className="auth">
-        <div className="login">
+          <div className="login">
             <div className="signIn">=Sign In=</div>
             <div>Email: </div>
             <input name='email' onChange={ (e) => this.handleChange(e)}></input>
             <div>Password:</div> 
             <input name='password' onChange={ (e) => this.handleChange(e)}></input>
-            <button onClick={this.loginUser}>Login</button>
+            <button style= {{backgroundColor: "white", color: "black", width: "40%", borderRadius:"2px"}} onClick={this.loginUser}>Login</button>
+            <div className="register-guest" style = {{display: "flex", flexDirection: "row"}}>
+              {/* <button><Link id="register-guest-bttn" style= {{textDecoration: "none"}} to='/register'>Register</Link></button>  */}
+              {/* <button style = {{backgroundColor: "white"}}><Link id="register-guest-bttn" style= {{textDecoration: "none", color:"black"}} to='/dashboard'>Continue As Guest</Link></button>  */}
+            </div>
           </div>
-           <div style={{padding: '20px', color: 'white'}}><Link to='/register'>New Around Here?</Link></div> 
+          </div>
+          <div className = "auth-btn-div">
+            <button id= "auth-options1" ><Link to="/register" id= "auth-options">Register</Link></button>
+            <button id= "auth-options2" ><Link to="/newprofile" id= "auth-options">Continue As Guest</Link></button>
+          </div>
         </div>
-
     )
   }
 }

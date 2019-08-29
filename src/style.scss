@@ -2,22 +2,10 @@ $sigblue:   rgb(59, 59, 94);
 $sigbutton:  lightblue;
 
 html{
-    background-image: url("./dlowBackground.png");
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
     }
-// .App {
-//     box-sizing: border-box;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-//     align-items: center;
-// }
 
 @mixin display {
     display: flex;
@@ -26,27 +14,13 @@ html{
 
 .header {
     @include display();
-    margin-bottom: 20px;
     padding: 0px;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    background-color: rgb(201, 198, 198);
-    background-image: linear-gradient(to right, red , rgb(201, 198, 198));
+    background-color: white;
+    // background-color: rgb(201, 198, 198);
+    // background-image: linear-gradient(to right, rgb(173, 5, 5) , rgb(201, 198, 198));
     background-size: cover;
-        .welcome{
-            min-height: 60px;
-            min-width: 100%;
-            background-image: url("./images/asphalt.jpg");
-            background-size: cover;
-            background-position: bottom;
-            font-weight: bold;
-            text-align: center;
-            font-size: 40px;
-            padding-top: 20px;
-            color: white;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
-        }
         image{
             position: absolute;
         }
@@ -54,7 +28,8 @@ html{
             @include display();
             box-sizing: border-box;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: flex-start;
+            padding: 0px 0px 0px 40px;
         }
         h1 {
             color: $sigblue;
@@ -74,18 +49,26 @@ html{
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
         .menu {
+            float: right;
             @include display();
             width: 100%;
             height: 20px;
-            flex-direction: row;
-            justify-content: center;
-            background-color: $sigblue;
+            padding: 0px 40px;
+            justify-content: flex-end;
+            background-color: transparent;
             cursor: pointer;
+            
             p {
-                padding: 0px 40px;
+                display: inline-block;
+                padding: 0px 10px;
                 margin: 0px;
-                border-right: solid lightblue 1px; 
-                border-left: solid lightblue 1px;
+                font-size: 16px;
+                
+                #menuItem{
+                    text-decoration: none;
+                    color: $sigblue;
+                }
+
             }
         }
 
@@ -120,12 +103,58 @@ html{
 }
 .auth {
     @include display();
-    flex-direction: column;
-    justify-content: space-around;
-    background-image: url("./images/audi.jpg");
+    flex-direction: row;
+    justify-content: flex-end;
+    background: url("./images/adventure.jpg") no-repeat;
+    background-position: 0%;
     background-size: cover;
-    background-position: 70%;
-    height: 800px;
+    margin: 0px;
+    min-height: 100%;
+    // background-position-x: 50%;
+}
+
+.auth-btn-div{
+    min-height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+    a{
+        text-decoration: none;
+        color: white;
+        font-size: 24px;
+    }
+    
+    #auth-options1{
+        height: 150px;
+        width: 300px;
+        margin-top: 20px;
+        border-radius: 5px;
+        background: url("./images/asphalt.jpg") no-repeat;
+        background-position: 90%;
+        opacity: .8;
+
+    }
+    #auth-options2{
+        height: 150px;
+        width: 300px;
+        margin-top: 20px;
+        border-radius: 5px;
+        background: url("./images/audi.jpg") no-repeat;
+        background-position: 80%;
+        opacity: .8;
+    }
+
+    #auth-options1:hover, #auth-options2:hover{
+        background: white;
+        cursor: pointer;
+        
+        #auth-options{
+            color: black;
+            font-size: 28px;
+        }
+    }
 }
 .login {
     @include display();
@@ -133,13 +162,10 @@ html{
     justify-content: space-around;
     background-color: rgba(59, 59, 94, 0.507);
     color: white;
-    border: solid black 1px;
-    box-shadow: 2px 2px rgb(201, 198, 198);
-    padding: 10px 20px;
+    padding: 10px 10px;
     border-radius: 10%;
     width: 300px;
-    margin-top: 40px;
-    margin-bottom: 10px;
+    margin: 40px 20px 10px 0px;
 
     .signIn{
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -169,7 +195,6 @@ html{
     }
     .signIn{
         font-size: 30px;
-        padding-bottom: 20px;
     }
 
     @media only screen and (max-width: 767px) {
@@ -240,12 +265,28 @@ html{
     // }
 }
 
+.register-guest{
+    button{
+        margin: 0px 20px;
+        border: white 2px solid;
+        color: white; 
+        background-color: transparent; 
+        width: 100%;
+        height: 100%;
+        min-height: 40px;
+        object-fit: contain;
+        }
+    #register-guest-bttn{
+    text-decoration: none;
+    color: white;
+    }
+}
 .register {
     @extend .login;
         padding: 10px 60px;
         
         div {
-            padding-top: 20px;
+            padding-top: 10px;
         }
         h1{
             font-size: 30px;
@@ -272,7 +313,6 @@ html{
         }
         .signIn{
             font-size: 30px;
-            padding-bottom: 20px;
         }
     
         @media only screen and (max-width: 767px) {
@@ -309,7 +349,7 @@ html{
         margin: 20px 20px;
         
         div {
-            padding-top: 20px;
+            padding-top: 10px;
             
         }
         h1{
@@ -362,7 +402,7 @@ html{
         padding: 10px 60px;
         
         div {
-            padding-top: 20px;
+            padding-top: 10px;
         }
         h1{
             font-size: 30px;
@@ -594,5 +634,22 @@ html{
             }
         }
   }
-    
+    #footer-menu{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        #footer-menu-item{
+            text-decoration: none;
+        }
+    }
+    // #footer{
+    //     display: flex; 
+    //     background-color: lightgrey; 
+    //     flex-direction: row; 
+    //     justify-content: space-around; 
+    //     margin-top: 20px;
+    //     min-height: 100%;
+    // }
 }
