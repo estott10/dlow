@@ -8,9 +8,8 @@ import routes from './routes';
 export default class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div id="wrapper">
          <Header />
-
          {routes}
          <Footer />
       </div>

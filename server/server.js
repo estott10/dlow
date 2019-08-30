@@ -39,6 +39,7 @@ app.use(session({
 
 massive(process.env.CONNECTION_STRING).then( dbInstance => {
     app.set('db', dbInstance)
+    console.log("DB Up and Running")
 }).catch(err => console.log(err));
 
 app.get('/api/profiles/:userid', controller.getProfiles);

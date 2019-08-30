@@ -1,15 +1,19 @@
 $sigblue:   rgb(59, 59, 94);
-$sigbutton:  lightblue;
-
-html{
-    box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-    }
+$sigbutton:  white;
 
 @mixin display {
     display: flex;
     align-items: center;
+}
+
+html{
+    color: black;
+
+    button:hover{
+        color: white;
+        background-color: $sigblue;
+        cursor: pointer;
+    }
 }
 
 .header {
@@ -117,8 +121,9 @@ html{
     min-height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+    margin: 80px 10px;
     
     a{
         text-decoration: none;
@@ -147,7 +152,7 @@ html{
     }
 
     #auth-options1:hover, #auth-options2:hover{
-        background: white;
+        background:$sigblue;
         cursor: pointer;
         
         #auth-options{
@@ -187,8 +192,8 @@ html{
     button {
         width: 60px;
         height: 30px;
-        color: white; 
-        background-color:$sigbutton;
+        color: black; 
+        background-color: $sigbutton;
         border: onset transparent 2px;
         font-weight: bold;
         margin-top: 20px;
@@ -196,7 +201,7 @@ html{
     .signIn{
         font-size: 30px;
     }
-
+    
     @media only screen and (max-width: 767px) {
            
         h1 {
@@ -224,6 +229,13 @@ html{
         }
       }
 }
+// .login:hover{
+//     button:hover{
+//     background-color: $sigblue;
+//     color: white;
+//     cursor: pointer;
+//     }
+// }
 .options{
     @include display();
     flex-direction: row;
@@ -269,7 +281,7 @@ html{
     button{
         margin: 0px 20px;
         border: white 2px solid;
-        color: white; 
+        color: black; 
         background-color: transparent; 
         width: 100%;
         height: 100%;
@@ -278,7 +290,7 @@ html{
         }
     #register-guest-bttn{
     text-decoration: none;
-    color: white;
+    color: black;
     }
 }
 .register {
@@ -305,7 +317,6 @@ html{
         button {
             width: 60px;
             height: 30px;
-            color: white; 
             background-color:$sigbutton;
             border: onset transparent 2px;
             font-weight: bold;
@@ -368,7 +379,6 @@ html{
         button {
             width: 100px;
             height: 40px;
-            color: white; 
             background-color:$sigbutton;
             border: onset transparent 2px;
             font-weight: bold;
@@ -420,7 +430,6 @@ html{
         button {
             width: 160px;
             height: 40px;
-            color: white; 
             background-color: $sigbutton;
             border: onset transparent 2px;
             font-weight: bold;
@@ -633,17 +642,37 @@ html{
                 min-height: 200px;
             }
         }
-  }
-    #footer-menu{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-
-        #footer-menu-item{
-            text-decoration: none;
-        }
     }
+}
+
+    
+#footer-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $sigblue;
+    opacity: .8;
+    min-height: 50px;
+    bottom: 0;
+
+    div{
+    #footer-menu-item{
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+    }
+  }
+}
+
+#wrapper{
+    bottom: 0;
+    padding: 0px;
+    margin: 0px;
+}
+// .menu{
+//    background-color: purple;
+// }
     // #footer{
     //     display: flex; 
     //     background-color: lightgrey; 
@@ -652,4 +681,3 @@ html{
     //     margin-top: 20px;
     //     min-height: 100%;
     // }
-}
