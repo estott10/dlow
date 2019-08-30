@@ -3,6 +3,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {updateUsername, updateEmail, updateAddress, updatePassword, updateProfilePic, updateUserId} from '../../ducks/reducer';
 import {Link} from 'react-router-dom';
+import Form from '../Form/Form';
 // import { cpus } from 'os';
 
 class Auth extends Component{
@@ -58,11 +59,9 @@ class Auth extends Component{
         <div>
         <div className="auth">
           <div className="login">
-            <div className="signIn">=Sign In=</div>
-            <div>Email: </div>
-            <input name='email' onChange={ (e) => this.handleChange(e)}></input>
-            <div>Password:</div> 
-            <input name='password' onChange={ (e) => this.handleChange(e)}></input>
+            <div className="signIn">Login</div>
+            <input placeholder = "email" name='email' onChange={ (e) => this.handleChange(e)}></input>
+            <input placeholder="password" name='password' onChange={ (e) => this.handleChange(e)}></input>
             <button style= {{backgroundColor: "white", color: "black", width: "40%", borderRadius:"2px"}} onClick={this.loginUser}>Login</button>
             <div className="register-guest" style = {{display: "flex", flexDirection: "row"}}>
               {/* <button><Link id="register-guest-bttn" style= {{textDecoration: "none"}} to='/register'>Register</Link></button>  */}
@@ -70,9 +69,18 @@ class Auth extends Component{
             </div>
           </div>
           </div>
+          <div id="instructions"> 
+            <div>Build A Profile</div>
+            <div>Browse A List Of Preferred Vehicles</div>
+            <div>Watch Reviews!</div>
+
+          </div>
           <div className = "auth-btn-div">
             <button id= "auth-options1" ><Link to="/register" id= "auth-options">Register</Link></button>
             <button id= "auth-options2" ><Link to="/newprofile" id= "auth-options">Continue As Guest</Link></button>
+          </div>
+          <div id = "auth-form">
+            <Form />
           </div>
         </div>
     )

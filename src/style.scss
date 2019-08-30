@@ -1,6 +1,11 @@
 $sigblue:   rgb(59, 59, 94);
 $sigbutton:  white;
 
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-stretch: expanded;
+}
+
 @mixin display {
     display: flex;
     align-items: center;
@@ -22,6 +27,7 @@ html{
     flex-direction: row;
     justify-content: space-between;
     background-color: white;
+    box-shadow: inset 0px 20px $sigblue;
     // background-color: rgb(201, 198, 198);
     // background-image: linear-gradient(to right, rgb(173, 5, 5) , rgb(201, 198, 198));
     background-size: cover;
@@ -61,7 +67,7 @@ html{
             justify-content: flex-end;
             background-color: transparent;
             cursor: pointer;
-            
+
             p {
                 display: inline-block;
                 padding: 0px 10px;
@@ -113,10 +119,12 @@ html{
     background-position: 0%;
     background-size: cover;
     margin: 0px;
-    min-height: 100%;
+    min-height: 500px;
     // background-position-x: 50%;
 }
-
+#auth-form{
+    background-color: rgba(208, 208, 212, 0.336);
+}
 .auth-btn-div{
     min-height: 100%;
     display: flex;
@@ -132,7 +140,7 @@ html{
     }
     
     #auth-options1{
-        height: 150px;
+        height: 300px;
         width: 300px;
         margin-top: 20px;
         border-radius: 5px;
@@ -142,7 +150,7 @@ html{
 
     }
     #auth-options2{
-        height: 150px;
+        height: 300px;
         width: 300px;
         margin-top: 20px;
         border-radius: 5px;
@@ -161,11 +169,25 @@ html{
         }
     }
 }
+
+#instructions{
+    min-height: 100px;
+    background-color: $sigblue;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    div{
+        font-style: italic;
+    }
+}
 .login {
     @include display();
     flex-direction: column;
     justify-content: space-around;
-    background-color: rgba(59, 59, 94, 0.507);
+    background-color: rgba(59, 59, 94, 0.336);
     color: white;
     padding: 10px 10px;
     border-radius: 10%;
@@ -173,7 +195,11 @@ html{
     margin: 40px 20px 10px 0px;
 
     .signIn{
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: $sigblue;
+        position: relative;
+        font-size: 30px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-shadow: 2px 2px;
     }
     
     div {
@@ -349,22 +375,28 @@ html{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-image: url("/src/images/action.jpg");
+    // background-image: url("/src/images/action.jpg");
     background-size: cover;
     .form {
         @extend .login;
         justify-content: space-between;
-        border: solid black 1px;
+        // border: solid black 1px;
         padding: 10px 60px;
-        background-color: rgba(59, 59, 94, 0.856);
+        background-color: transparent;
         margin: 20px 20px;
-        
+        color: black;
+
         div {
             padding-top: 10px;
             
         }
         h1{
+            color: $sigblue;
+            position: relative;
             font-size: 30px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-style: italic;
+            text-shadow: 2px 2px;
         }
         input{
             width: 340px;
@@ -377,13 +409,18 @@ html{
             box-shadow: 4px rgb(201, 198, 198);
         }
         button {
-            width: 100px;
+            width: 150px;
             height: 40px;
-            background-color:$sigbutton;
+            background-color: $sigbutton;
             border: onset transparent 2px;
             font-weight: bold;
             margin-top: 20px;
             margin-left: 20px;
+        }
+
+        button:hover{
+            color: white;
+            background-color: $sigblue;
         }
 
         @media only screen and (max-width: 767px) {

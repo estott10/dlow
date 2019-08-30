@@ -47,17 +47,17 @@ class Form extends Component{
       <div className="actionform">
         <div className="form">
 
-            <h1>Build Your Vehicle Profile</h1>
+            <h1>Build Your Vehicle Style Profile</h1>
             <div>
-            <div>Wheel Style Profile Name:</div>
-            <input name='title' onChange={ (e) => this.handleChange(e)}></input>
+            <div>Profile Name:</div>
+            <input placeholder = "ex: Riding In The Fast Lane" style ={{fontStyle: "italic"}} name='title' onChange={ (e) => this.handleChange(e)}></input>
             <div>Maximum Price:</div>
-            <input name='price' onChange={ (e) => this.handleChange(e)}></input>
+            <input placeholder = "ex: 65000" name='price' onChange={ (e) => this.handleChange(e)}></input>
             <div>Vehicle Type:</div> 
-            <input name='vehicle_type' onChange={ (e) => this.handleChange(e)} placeholder="vehicle, car, truck"></input>
+            <input name='vehicle_type' onChange={ (e) => this.handleChange(e)} placeholder="ex: vehicle, car, or truck"></input>
             {/* Make Drop down? <input name='password' onChange={ (e) => this.handleChange(e)}></input> */}
             <div>Preferred Manufacturer:</div>
-            <input name='manufacturers' onChange={ (e) => this.handleChange(e)}></input>
+            <input placeholder="ex: chevrolet" name='manufacturers' onChange={ (e) => this.handleChange(e)}></input>
             <Link to='/dashboard'><button onClick={this.addCarProfile}>Show Me My Wheels!</button></Link>
             </div>
             </div>
