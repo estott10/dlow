@@ -27,10 +27,15 @@ html{
     flex-direction: row;
     justify-content: space-between;
     background-color: white;
-    box-shadow: inset 0px 20px $sigblue;
+    margin-bottom: 4px;
+    // box-shadow: inset 0px 20px $sigblue;
+    box-shadow: -1px 8px 8px -8px #414042;
     // background-color: rgb(201, 198, 198);
     // background-image: linear-gradient(to right, rgb(173, 5, 5) , rgb(201, 198, 198));
     background-size: cover;
+    border-collapse: separate;
+
+
         image{
             position: absolute;
         }
@@ -168,6 +173,16 @@ html{
             font-size: 28px;
         }
     }
+
+    #auth-options1:hover, #auth-options2:hover{
+        background:$sigblue;
+        cursor: pointer;
+        
+        #auth-options{
+            color: black;
+            font-size: 28px;
+        }
+    }
 }
 
 #instructions{
@@ -187,7 +202,7 @@ html{
     @include display();
     flex-direction: column;
     justify-content: space-around;
-    background-color: rgba(59, 59, 94, 0.336);
+    background-color: rgba(59, 59, 94, 0.233);
     color: white;
     padding: 10px 10px;
     border-radius: 10%;
@@ -216,13 +231,19 @@ html{
         box-shadow: 4px rgb(201, 198, 198);
     }
     button {
-        width: 60px;
+        width: 40%;
         height: 30px;
-        color: black; 
-        background-color: $sigbutton;
-        border: onset transparent 2px;
+        color: white; 
+        background-color: $sigblue;
+        border: none;
         font-weight: bold;
         margin-top: 20px;
+        border-radius: 4px;
+    }
+
+    button:hover{
+        color: $sigblue; 
+        background-color: white;
     }
     .signIn{
         font-size: 30px;
@@ -322,13 +343,21 @@ html{
 .register {
     @extend .login;
         padding: 10px 60px;
+        justify-content: space-between;
+        background-color: transparent;
+        margin: 20px 20px;
+        color: black;
+
         
         div {
             padding-top: 10px;
         }
         h1{
+            color: $sigblue;
+            position: relative;
             font-size: 30px;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-shadow: 2px 2px;
         }
         input{
             width: 340px;
@@ -343,10 +372,16 @@ html{
         button {
             width: 60px;
             height: 30px;
-            background-color:$sigbutton;
+            background-color: $sigblue;
+            color: white;
             border: onset transparent 2px;
             font-weight: bold;
             margin-top: 20px;
+        }
+
+        button:hover{
+            background-color: white;
+            color: $sigblue;
         }
         .signIn{
             font-size: 30px;
@@ -408,19 +443,19 @@ html{
             font-size: 20px;
             box-shadow: 4px rgb(201, 198, 198);
         }
-        button {
+        #form-button {
             width: 150px;
             height: 40px;
-            background-color: $sigbutton;
-            border: onset transparent 2px;
+            background-color: $sigblue;
+            color: white;
             font-weight: bold;
             margin-top: 20px;
             margin-left: 20px;
         }
 
-        button:hover{
-            color: white;
-            background-color: $sigblue;
+        #form-button:hover{
+            color: $sigblue;
+            background-color: white;
         }
 
         @media only screen and (max-width: 767px) {

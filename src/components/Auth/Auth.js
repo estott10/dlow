@@ -62,7 +62,7 @@ class Auth extends Component{
             <div className="signIn">Login</div>
             <input placeholder = "email" name='email' onChange={ (e) => this.handleChange(e)}></input>
             <input placeholder="password" name='password' onChange={ (e) => this.handleChange(e)}></input>
-            <button style= {{backgroundColor: "white", color: "black", width: "40%", borderRadius:"2px"}} onClick={this.loginUser}>Login</button>
+            <button style={{fontStretch:"extra-expanded"}} onClick={this.loginUser}>Login</button>
             <div className="register-guest" style = {{display: "flex", flexDirection: "row"}}>
               {/* <button><Link id="register-guest-bttn" style= {{textDecoration: "none"}} to='/register'>Register</Link></button>  */}
               {/* <button style = {{backgroundColor: "white"}}><Link id="register-guest-bttn" style= {{textDecoration: "none", color:"black"}} to='/dashboard'>Continue As Guest</Link></button>  */}
