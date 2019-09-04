@@ -46,18 +46,22 @@ class Edit extends Component{
     render(props){
       const {vehicle_profileid} = this.props.match.params;
     return(
-        <div className="edit">
-            <h1>Update Your Vehicle Profile</h1>
-            <div>Wheel Style Profile Name:</div>
-            <input name='title' onChange={ (e) => this.handleChange(e)}></input>
-            <div>Maximum Price:</div>
-            <input name='price' onChange={ (e) => this.handleChange(e)}></input>
-            <div>Vehicle Type:</div> 
-            <input name='vehicle_type' onChange={ (e) => this.handleChange(e)}></input>
-            {/* Make Drop down? <input name='password' onChange={ (e) => this.handleChange(e)}></input> */}
-            <div>Preferred Manufacturer:</div>
-            <input name='manufacturers' onChange={ (e) => this.handleChange(e)}></input>
-        <button onClick= {()=>{this.editVehicleProfile(vehicle_profileid)}}>Update Vehicle Profile</button>
+        <div style = {{display: "flex", flexDirection:"row"}}>
+          <div className="edit">
+              <h1>Update Your Vehicle Profile</h1>
+              <div>Wheel Style Profile Name:</div>
+              <input name='title' onChange={ (e) => this.handleChange(e)}></input>
+              <div>Maximum Price:</div>
+              <input name='price' onChange={ (e) => this.handleChange(e)}></input>
+              <div>Vehicle Type:</div> 
+              <input name='vehicle_type' onChange={ (e) => this.handleChange(e)}></input>
+              {/* Make Drop down? <input name='password' onChange={ (e) => this.handleChange(e)}></input> */}
+              <div>Preferred Manufacturer:</div>
+              <input name='manufacturers' onChange={ (e) => this.handleChange(e)}></input>
+          <button onClick= {()=>{this.editVehicleProfile(vehicle_profileid)}}>Update Vehicle Profile</button>
+          </div>
+          <div id = "edit-image">
+          </div>
         </div>
     )
   }

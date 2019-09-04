@@ -3,9 +3,10 @@ import {connect} from 'react-redux';
 import YTSearch from 'youtube-api-search';
 import {updateVideos} from '../../ducks/reducer';
 import Car from '../Car/Car';
+import private_key from '../../dlowKey.json'
 
-const API_KEY = 'AIzaSyA-SpQMyMvSlUs4xLi4OxJzojvCm3EGZbs';
-
+// const API_KEY = 'AIzaSyA-SpQMyMvSlUs4xLi4OxJzojvCm3EGZbs';
+const API_KEY = private_key.private_key;
 
 class Reviews extends Component{
   constructor(props){
@@ -18,7 +19,7 @@ class Reviews extends Component{
   }
 
   componentDidMount(props){
-   
+    console.log(API_KEY);
     const { make, model} = this.props.match.params;
     const searchTerm = make + " " + model + " Review";
     const {updateVideos} = this.props;
@@ -52,7 +53,7 @@ class Reviews extends Component{
             <h1>Featured Reviews</h1>
             {console.log(videoList)}
             {videoList.map( (video, i) => {
-
+                
                 return <ul className="reviewGrid" key= {i}>
                 <div className="review">
                   <a className="thumnail" target="_blank" href={`https://www.youtube.com/watch?v=${video.id.videoId}`}><img alt='review' src={video.snippet.thumbnails.default.url}/>Watch Now</a> 

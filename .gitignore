@@ -20,3 +20,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/src/dlow-dafaedf430df.json
+/src/dlowKey.json
