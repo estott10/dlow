@@ -21,6 +21,7 @@ const controller = require('./controller');
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, '/build')));
 
 app.use(session({
     name: 'dlow',
