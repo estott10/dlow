@@ -30,7 +30,7 @@
     "youtube-api-search": "0.0.5"
   },
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node server.js",
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
