@@ -9,7 +9,7 @@ const express = require('express'),
       
 
 const app = express();
-const controller = require('./controller');
+const controller = require('./server/controller');
 
 // app.use(express.static(path.join(__dirname, '/build')));
 
