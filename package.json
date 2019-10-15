@@ -2,6 +2,7 @@
   "name": "dlow",
   "version": "0.1.0",
   "private": true,
+  "main" : "server.js",
   "proxy": "http://localhost:4000",
   "engines": {
     "npm": "6.9.0",
