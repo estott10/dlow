@@ -27,4 +27,4 @@ yarn-error.log*
 .env
 
 # /src/dlow-dafaedf430df.json
-# /src/dlowKey.json
+/src/dlowKey.json
