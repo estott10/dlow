@@ -23,6 +23,7 @@ class Dashboard extends Component{
           this.setState({
             vehicle_profiles: result.data
           });
+          console.log(this.state.vehicle_profiles);
           updateVehicleProfiles(result.data);
   });
 }
