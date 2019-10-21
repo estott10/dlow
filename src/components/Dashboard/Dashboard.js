@@ -5,7 +5,6 @@ import {updateVehicleProfiles} from '../../ducks/reducer';
 import {Link} from 'react-router-dom';
 
 
-
 class Dashboard extends Component{
   constructor(props){
     super(props)
@@ -17,13 +16,14 @@ class Dashboard extends Component{
     this.componentDidMount = this.componentDidMount.bind(this);
   }
   componentDidMount(props){
-     const {userid, updateVehicleProfiles} = this.props;
+    const {userid, updateVehicleProfiles} = this.props;
+    console.log(this.state.vehicle_profiles);
     axios.get(`/api/profiles/${userid}`)
-      .then(result => {
+    .then(result => {
+      console.log(result.data);
           this.setState({
             vehicle_profiles: result.data
           });
-          console.log(this.state.vehicle_profiles);
           updateVehicleProfiles(result.data);
   });
 }
@@ -34,7 +34,6 @@ removeVehicleProfile(profileId){
         this.componentDidMount();
     });
 }
-
 
     render(props){
 
@@ -60,7 +59,6 @@ removeVehicleProfile(profileId){
             })
           }
         </div>
-
     )
   }
 }

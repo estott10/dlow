@@ -4,9 +4,9 @@ module.exports= {
         const dbInstance = req.app.get('db');
         const {userid} = req.params;
         
+        console.log("===============");
         dbInstance.get_VehicleProfiles(userid)
           .then(result => {
-              console.log(userid);
               res.status(200).send(result)
           }).catch(err => {
               res.status(500).send({errorMessage:'Failed to Retrieve Vehicle Profiles'});
