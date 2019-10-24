@@ -1,16 +1,15 @@
-require('dotenv').config();
 
 const express = require('express'),
-    //   path = require('path'),
-      bodyParser= require('body-parser'),
-      cors= require('cors'),
-      path = require("path"),
-      massive= require('massive'),
-      session= require('express-session');
-      
+    cors= require('cors'),
+    bodyParser= require('body-parser'),
+    path = require("path"),
+    massive= require('massive'),
+    session= require('express-session'),
+    app = express(),
+    controller = require('./server/controller');
 
-const app = express();
-const controller = require('./server/controller');
+require('dotenv').config();
+
 
 // app.use(express.static(path.join(__dirname, '/build')));
 
@@ -20,8 +19,8 @@ const controller = require('./server/controller');
 //     })
 // } )
 
-app.use(bodyParser.json());
 app.use(cors());
+app.use(bodyParser.json());
 // app.use(express.static(__dirname));
 // app.use(express.static(path.join(__dirname, 'build')));
 // app.get('/ping', function (req, res) {
@@ -52,9 +51,9 @@ massive(process.env.CONNECTION_STRING).then( dbInstance => {
 }).catch(err => console.log(err));
 
 app.get('/api/profiles/:userid', controller.getProfiles);
-app.post('/api/login', controller.loginUser);
+app.use('/api/login', controller.loginUser);
 app.get('/api/single_profile_list/:make/:vehicle_type', controller.getVehicles);
-app.post('/api/register', controller.registerUser);
+app.use('/api/register', controller.registerUser);
 app.post('/api/newprofile', controller.addProfile);
 app.delete('/api/vehicles/:profileId', controller.removeProfile); 
 app.put('/api/editprofile', controller.editProfile);
