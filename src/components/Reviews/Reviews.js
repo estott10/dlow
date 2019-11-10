@@ -5,7 +5,6 @@ import {updateVideos} from '../../ducks/reducer';
 import Car from '../Car/Car';
 import private_key from '../../dlowKey.json'
 
-// const API_KEY = 'AIzaSyA-SpQMyMvSlUs4xLi4OxJzojvCm3EGZbs';
 const API_KEY = private_key.private_key;
 
 class Reviews extends Component{
@@ -19,7 +18,6 @@ class Reviews extends Component{
   }
 
   componentDidMount(props){
-    console.log(API_KEY);
     const { make, model} = this.props.match.params;
     const searchTerm = make + " " + model + " Review";
     const {updateVideos} = this.props;
